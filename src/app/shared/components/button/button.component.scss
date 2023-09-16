@@ -1,0 +1,12 @@
+.app-btn {
+  margin-top: 36px;
+  padding: 12px;
+  background-color: #20170E;
+  color: #FBFBFB;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &.large {
+    padding: 18px;
+  }
+}

@@ -2,14 +2,14 @@
   <div class="login-container">
     <img src="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png" alt="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png">
     <h1>Login</h1>
-    <div class="login-input" > 
-      <input placeholder="E-mail" type="text" >
+    <div class="form-group">
+      <label>E-mail:</label>
+      <app-input type="text" placeholder="exemplo@gmail.com"></app-input>
     </div>
-    <div class="login-input" > 
-      <input placeholder="Senha" type="password" >
+    <div class="form-group">
+      <label>Senha:</label>
+      <app-input type="password" placeholder="******"></app-input>
     </div>
-    <button class="btn-default">
-      Entrar
-    </button>
+    <app-button size="normal" (clicked)="oncliquei()">Entrar</app-button>
   </div>
 </div>

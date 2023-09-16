@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AdminLoginComponent {
   
+  public oncliquei(): void {
+    console.log('teste');
+  }
+
 }

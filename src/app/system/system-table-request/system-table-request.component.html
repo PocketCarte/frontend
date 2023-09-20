@@ -1,5 +1,46 @@
 <div class="request-container">
-  <div class="request-container-list">
-    <p>oi</p>
-  </div>
+  <ng-container *ngIf="waitingRequest">
+    <div class="request-icon">
+      <i class="bi bi-hourglass-split"></i>
+    </div>
+    <h2 class="request-instruction">
+      Aguarde um instante enquanto um dos nossos garçons irá conceder-lhe acesso.
+    </h2>
+    <div class="request-info">
+      <div class="request-tooltip">
+        <i class="bi bi-info-circle-fill"></i>
+      </div>
+      <p class="request-text">
+        Sua solicitação de uso para esta mesa foi enviada
+        a cozinha, aguarde um instante, caso demore muito
+        chame um funcionário.
+      </p>
+    </div>
+    <h2 class="request-acess-menu">
+      Você também pode ir olhando nosso cardápio!
+    </h2>
+    <div class="request-arrow">
+      <app-button size="normal">
+        Clique aqui
+      </app-button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="!waitingRequest">
+    <div class="request-icon">
+      <i class="bi bi-lock-fill"></i>
+    </div>
+    <h2 class="request-instruction">
+      Esta mesa já está em uso, <br>
+      Sr. Espertinho
+    </h2>
+    <div class="request-info">
+      <div class="request-tooltip">
+        <i class="bi bi-info-circle-fill"></i>
+      </div>
+      <p class="request-text">
+        Favor consultar um colaborador.
+      </p>
+    </div>
+  </ng-container>
 </div>

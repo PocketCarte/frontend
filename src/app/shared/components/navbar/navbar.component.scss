@@ -1,0 +1,22 @@
+.app-navbar {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+
+  .navbar-item {
+    flex: 1;
+    color: #FFF;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #20170E;
+    padding: 8px 0px;
+
+    &.selected {
+      background-color: #000;
+    }
+  }
+}

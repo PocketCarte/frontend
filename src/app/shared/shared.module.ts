@@ -6,6 +6,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { InputComponent } from './components/input/input.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 
 
 
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     ButtonComponent,
     InputComponent,
+    AdminSidebarComponent,
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ButtonComponent,
     InputComponent,
     CommonModule,
+    AdminSidebarComponent,
   ]
 })
 export class SharedModule { }

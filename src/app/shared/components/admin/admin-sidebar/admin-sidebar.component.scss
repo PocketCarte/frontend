@@ -16,8 +16,12 @@
       background-color: #20170e;
     }
 
-    &.selected {
+    &.selected{
       background-color: #20170e;
+    }
+
+    &.selected:hover{
+      background-color: #110c08;
     }
 
     a {

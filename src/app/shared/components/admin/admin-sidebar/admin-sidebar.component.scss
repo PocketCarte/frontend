@@ -1,0 +1,33 @@
+.app-admin-sidebar {
+  background-color: #563b20;
+  width: 54px;
+  height: 100%;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+
+  &-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover {
+      background-color: #20170e;
+    }
+
+    &.selected {
+      background-color: #20170e;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0px;
+      width: 100%;
+      font-size: 28px;
+      color: white;
+    }
+  }
+}

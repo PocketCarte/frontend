@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin.component';
 import { SharedModule } from '../shared/shared.module';
 import { AdminInterceptorService } from './shared/admin-interceptor.service';
+import { AdminRoutingModule } from './admin-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdminInterceptorService } from './shared/admin-interceptor.service';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    AdminRoutingModule,
     HttpClientModule,
   ],
   providers: [

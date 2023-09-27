@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SystemInterceptorService } from '../shared/services/system-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { SystemRoutingModule } from './system-routing.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    SystemRoutingModule,
   ],
   providers: [
     SystemInterceptorService,

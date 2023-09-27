@@ -1,0 +1,25 @@
+.app-admin-header {
+  background-color: #20170e;
+  height: 60px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  &-logo {
+    img {
+      width: 54px;
+      height: 54px;
+    }
+  }
+
+  &-user {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: white;
+    font-size: 36px;
+    padding: 0px 8px;
+    cursor: pointer;
+  }
+}

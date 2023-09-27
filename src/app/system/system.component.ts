@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-system',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./system.component.scss']
 })
 export class SystemComponent {
+
+  constructor (private title: Title) {
+    this.title.setTitle('PocketCarte');
+  }
 
 }

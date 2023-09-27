@@ -8,10 +8,10 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin.component';
-import { AdminInterceptorService } from '../shared/services/admin-interceptor.service';
 import { SharedModule } from '../shared/shared.module';
+import { AdminInterceptorService } from './shared/admin-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [
     AdminInterceptorService,

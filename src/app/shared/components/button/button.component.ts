@@ -9,6 +9,7 @@ export type ButtonSizeType = 'normal' | 'large' | 'small'
 })
 export class ButtonComponent {
 
+  @Input() type = '';
   @Input() size: ButtonSizeType = 'normal';
   @Output() clicked: EventEmitter<any> = new EventEmitter();
 

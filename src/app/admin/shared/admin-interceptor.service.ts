@@ -10,11 +10,16 @@ export class AdminInterceptorService {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    request = request.clone({
-      setHeaders: {
-        Authorization: 'Bearer test',
-      },
-    });
+
+    const adminToken = localStorage.getItem("adminToken");
+
+    if(adminToken){
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${adminToken}`,
+        },
+      });
+    }
     return next.handle(request);
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AdminLoginService } from '../shared/admin-login.service';
+import { AdminLoginService } from '../shared/services/admin-login.service';
 import { Router } from '@angular/router';
 
 @Component({

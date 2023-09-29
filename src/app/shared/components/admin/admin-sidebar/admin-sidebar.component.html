@@ -1,7 +1,0 @@
-<div class="app-admin-sidebar">
-  <div class="app-admin-sidebar-card" *ngFor="let sidebarItem of sidebarItems" [class.selected]="isSelected(sidebarItem.route)">
-    <a [routerLink]="sidebarItem.route">
-      <i class="bi" [ngClass]="sidebarItem.icon"></i>
-    </a>
-  </div>
-</div>

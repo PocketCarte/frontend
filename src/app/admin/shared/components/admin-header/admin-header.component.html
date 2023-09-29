@@ -1,0 +1,18 @@
+<div class="app-admin-header" #header>
+  <div class="app-admin-header-logo">
+    <img src="../../../../assets/images/logo-white.png" alt="" />
+  </div>
+  <div class="app-admin-header-user">
+    <i class="bi bi-person-fill" (click)="toggleUserDropdown()"></i>
+    <div class="app-admin-header-user-dropdown" [class.showing]="userDropdown">
+      <div class="app-admin-header-user-dropdown-field">
+        <i class="bi bi-person-circle"></i>
+        <span>Minha conta</span>
+      </div>
+      <div class="app-admin-header-user-dropdown-field" (click)="adminLoginService.logout()">
+        <i class="bi bi-box-arrow-right"></i>
+        <span>Sair</span>
+      </div>
+    </div>
+  </div>
+</div>

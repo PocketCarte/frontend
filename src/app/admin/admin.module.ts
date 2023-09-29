@@ -11,8 +11,11 @@ import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './admin.component';
 import { SharedModule } from '../shared/shared.module';
-import { AdminInterceptorService } from './shared/admin-interceptor.service';
+import { AdminInterceptorService } from './shared/services/admin-interceptor.service';
 import { AdminRoutingModule } from './admin-routing.module';
+import { AdminBodyComponent } from './shared/components/admin-body/admin-body.component';
+import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
+import { AdminSidebarComponent } from './shared/components/admin-sidebar/admin-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { AdminRoutingModule } from './admin-routing.module';
     AdminCategoriesAddComponent,
     AdminUsersListComponent,
     AdminUsersAddComponent,
+    AdminBodyComponent,
+    AdminHeaderComponent,
+    AdminSidebarComponent,
     AdminComponent,
   ],
   imports: [

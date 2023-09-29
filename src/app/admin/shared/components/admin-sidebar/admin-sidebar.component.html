@@ -1,0 +1,9 @@
+<div class="app-admin-sidebar">
+  <ng-container *ngFor="let sidebarItem of sidebarItems">
+    <div class="app-admin-sidebar-card" *ngIf="adminAuthorizerService.hasRoutePermission(sidebarItem.route)" [class.selected]="isSelected(sidebarItem.route)">
+      <a [routerLink]="sidebarItem.route">
+        <i class="bi" [ngClass]="sidebarItem.icon"></i>
+      </a>
+    </div>
+  </ng-container>
+</div>

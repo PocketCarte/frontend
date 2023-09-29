@@ -17,6 +17,8 @@ import { AdminBodyComponent } from './shared/components/admin-body/admin-body.co
 import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
 import { AdminSidebarComponent } from './shared/components/admin-sidebar/admin-sidebar.component';
 import { AdminSpinnerComponent } from './shared/components/admin-spinner/admin-spinner.component';
+import { AdminTableComponent } from './shared/components/admin-table/admin-table.component';
+import { AdminModalComponent } from './shared/components/admin-modal/admin-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { AdminSpinnerComponent } from './shared/components/admin-spinner/admin-s
     AdminSidebarComponent,
     AdminComponent,
     AdminSpinnerComponent,
+    AdminTableComponent,
+    AdminModalComponent,
   ],
   imports: [
     CommonModule,

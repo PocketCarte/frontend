@@ -1,0 +1,32 @@
+<div class="admin-table">
+  <div class="admin-table-header">
+    <div class="admin-table-header-column" *ngFor="let option of options">
+      <ng-container *ngIf="!option.deleteButton && !option.editButton">
+        {{ option.label }}
+      </ng-container>
+    </div>
+  </div>
+  <div class="admin-table-body">
+    <ng-container *ngFor="let d of data">
+      <div class="admin-table-body-data">
+        <ng-container *ngFor="let option of options">
+          <ng-container *ngIf="option.deleteButton || option.editButton">
+            <div class="admin-table-body-data-column actions">
+              <ng-container *ngIf="option.editButton">
+                <app-button size="normal" (clicked)="editClick.emit(d)"><i class="bi bi-pen"></i></app-button>
+              </ng-container>
+              <ng-container *ngIf="option.deleteButton">
+                <app-button size="normal" (clicked)="deleteClick.emit(d)"><i class="bi bi-trash"></i></app-button>
+              </ng-container>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.column">
+            <div class="admin-table-body-data-column">
+              {{ d[option.column] }}
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

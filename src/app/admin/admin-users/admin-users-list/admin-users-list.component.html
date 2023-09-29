@@ -1,3 +1,7 @@
 <app-admin-body>
-    <h2>User List</h2>
+    <div class="admin-user-list-header">
+        <p>Usuários</p>
+        <app-button size="normal">Adicionar um usuário</app-button>
+    </div>
+    <app-admin-table [options]="tableOptions" [data]="data"></app-admin-table>
 </app-admin-body>

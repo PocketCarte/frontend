@@ -1,0 +1,10 @@
+.admin-user-list {
+    &-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 30px;
+      font-weight: 400;
+    }
+}

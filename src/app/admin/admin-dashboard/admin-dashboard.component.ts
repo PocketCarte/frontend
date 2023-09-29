@@ -18,48 +18,6 @@ import { AdminSpinnerService } from '../shared/services/admin-spinner.service';
 })
 export class AdminDashboardComponent implements OnInit {
   public data!: AdminDashboard;
-  public tableOptions = [
-    {
-      label: 'ID',
-      column: 'id'
-    },
-    {
-      label: 'Nome',
-      column: 'name'
-    },
-    {
-      label: 'Email',
-      column: 'email'
-    },
-    {
-      label: 'Permissão',
-      column: 'permission'
-    },
-    {
-      editButton: true,
-      deleteButton: true
-    },
-  ]
-  public tableData = [
-    {
-      id: '1',
-      name: 'Pedro',
-      email: 'pedro@gmail.com',
-      permission: 'Administrador',
-    },
-    {
-      id: '2',
-      name: 'Pedro',
-      email: 'pedro@gmail.com',
-      permission: 'Administrador',
-    },
-    {
-      id: '3',
-      name: 'Pedro',
-      email: 'pedro@gmail.com',
-      permission: 'Administrador',
-    },
-  ]
 
   constructor(
     public adminAuthorizerService: AdminAuthorizerService,
@@ -74,13 +32,5 @@ export class AdminDashboardComponent implements OnInit {
     this.adminSpinnerService.showing = true;
     this.data = await this.adminDashboardService.getDashboard();
     this.adminSpinnerService.showing = false;
-  }
-
-  public onDelete(event: any): void {
-    console.log('teste delete', event);
-  }
-
-  public onEdit(event: any): void {
-    console.log('teste edit', event);
   }
 }

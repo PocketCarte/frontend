@@ -1,15 +1,16 @@
-<div class="admin-login">
-  <div class="admin-login-container">
-    <img src="../../../assets/images/logo.png" alt="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png">
+<div class="login-screen">
+  <form class="login-container" (ngSubmit)="onLogin()">
+    <img src="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png" alt="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png">
     <h1>Login</h1>
-    <form (ngSubmit)="onLogin()" class="admin-login-form">
-      <div class="admin-login-form-field">
-        <app-input label="Email:" [control]="email" type="email" placeholder="exemplo@gmail.com"></app-input>
-      </div>
-      <div class="admin-login-form-field">
-        <app-input label="Senha:" [control]="password" type="password" placeholder="******"></app-input>
-      </div>
-      <app-button size="large">Entrar</app-button>
-    </form>
-  </div>
+    <div class="login-input" > 
+      <app-input label="Email:" [control]="email" type="email" placeholder="exemplo@gmail.com"></app-input>
+    </div>
+    <div class="login-input" > 
+      <app-input label="Senha:" [control]="password" type="password" placeholder="******"></app-input>
+    </div>
+    <div class="btn-default">
+      <app-button size="normal">Entrar</app-button>
+    </div>
+  </form>
 </div>
+

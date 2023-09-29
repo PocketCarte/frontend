@@ -16,6 +16,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminBodyComponent } from './shared/components/admin-body/admin-body.component';
 import { AdminHeaderComponent } from './shared/components/admin-header/admin-header.component';
 import { AdminSidebarComponent } from './shared/components/admin-sidebar/admin-sidebar.component';
+import { AdminSpinnerComponent } from './shared/components/admin-spinner/admin-spinner.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdminSidebarComponent } from './shared/components/admin-sidebar/admin-s
     AdminHeaderComponent,
     AdminSidebarComponent,
     AdminComponent,
+    AdminSpinnerComponent,
   ],
   imports: [
     CommonModule,

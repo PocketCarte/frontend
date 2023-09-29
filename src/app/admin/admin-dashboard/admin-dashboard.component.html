@@ -1,3 +1,63 @@
 <app-admin-body>
-    <h2>Dashboard</h2>
+    <div class="admin-dashboard-header">
+        Dashboard
+    </div>
+    <div class="admin-dashboard-cards" *ngIf="data">
+        <div class="admin-dashboard-cards-card" *ngIf="adminAuthorizerService.hasRoutePermission('/admin/orders')">
+            <div class="admin-dashboard-cards-card-type">
+                <i class="bi bi-cart-fill"></i>
+                <span>Pedidos</span>
+            </div>
+            <div class="admin-dashboard-cards-card-number">{{ data.orders }}</div>
+        </div>
+        <div class="admin-dashboard-cards-card" *ngIf="adminAuthorizerService.hasRoutePermission('/admin/users')">
+            <div class="admin-dashboard-cards-card-type">
+                <i class="bi bi-cash-coin"></i>
+                <span>Patrimônio</span>
+            </div>
+            <div class="admin-dashboard-cards-card-number">R$ 1000,00</div>
+        </div>
+        <div class="admin-dashboard-cards-card" *ngIf="adminAuthorizerService.hasRoutePermission('/admin/tables')">
+            <div class="admin-dashboard-cards-card-type">
+                <i class="bi bi-qr-code"></i>
+                <span>Mesas</span>
+            </div>
+            <div class="admin-dashboard-cards-card-number">{{ data.tables }}</div>
+        </div>
+        <div class="admin-dashboard-cards-card" *ngIf="adminAuthorizerService.hasRoutePermission('/admin/users')">
+            <div class="admin-dashboard-cards-card-type">
+                <i class="bi bi-person-fill-gear"></i>
+                <span>Usuários</span>
+            </div>
+            <div class="admin-dashboard-cards-card-number">{{ data.users }}</div>
+        </div>
+        <div class="admin-dashboard-cards-card" *ngIf="adminAuthorizerService.hasRoutePermission('/admin/categories')">
+            <div class="admin-dashboard-cards-card-type">
+                <i class="bi bi-bookmarks-fill"></i>
+                <span>Categorias</span>
+            </div>
+            <div class="admin-dashboard-cards-card-number">{{ data.categories }}</div>
+        </div>
+        <div class="admin-dashboard-cards-card" *ngIf="adminAuthorizerService.hasRoutePermission('/admin/products')">
+            <div class="admin-dashboard-cards-card-type">
+                <i class="bi bi-archive-fill"></i>
+                <span>Produtos</span>
+            </div>
+            <div class="admin-dashboard-cards-card-number">{{ data.products }}</div>
+        </div>
+        <div class="admin-dashboard-cards-card" *ngIf="adminAuthorizerService.hasRoutePermission('/admin/orders')">
+            <div class="admin-dashboard-cards-card-type">
+                <i class="bi bi-basket2"></i>
+                <span>Prod. Vendidos</span>
+            </div>
+            <div class="admin-dashboard-cards-card-number">3</div>
+        </div>
+        <div class="admin-dashboard-cards-card" *ngIf="adminAuthorizerService.hasRoutePermission('/admin/orders')">
+            <div class="admin-dashboard-cards-card-type">
+                <i class="bi bi-gear-wide-connected"></i>
+                <span>Req. Mesas</span>
+            </div>
+            <div class="admin-dashboard-cards-card-number">{{ data.table_requests }}</div>
+        </div>
+    </div>
 </app-admin-body>

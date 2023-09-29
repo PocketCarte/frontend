@@ -1,3 +1,4 @@
 <div class="app-input"> 
+  <label *ngIf="label">{{ label }}</label>
   <input [formControl]="control" [placeholder]="placeholder" [type]="type" (change)="onChange($event)" />
 </div>

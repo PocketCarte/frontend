@@ -10,6 +10,7 @@ export class InputComponent {
 
   @Input() type!: string;
   @Input() placeholder!: string;
+  @Input() label!: string;
   @Input() control!: FormControl;
   @Output() changed: EventEmitter<any> = new EventEmitter(); 
 

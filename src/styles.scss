@@ -21,25 +21,6 @@ a{
   text-decoration: none;
 }
 
-.form-group{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  max-width: 365px;
-  row-gap: 5px;
-
-  label{
-    font-size: 16px;
-    font-weight: 500;
-  }
-}
-
-@media (max-width: 768px) {
-  .form-group{
-    max-width: 265px;
-  }
-}
-
 $color-primary: #20170E;
 $color-secondary: #563B20;
 $color-black: #000000;

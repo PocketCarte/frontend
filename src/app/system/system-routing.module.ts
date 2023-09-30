@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SystemComponent } from './system.component';
+import { SystemMenuComponent } from './system-menu/system-menu.component';
 import { SystemTableRequestComponent } from './system-table-request/system-table-request.component';
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
       },
       {
         path: 'menu',
-        component: SystemComponent,
+        component: SystemMenuComponent,
       },
       {
         path: '**',

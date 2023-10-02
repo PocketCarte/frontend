@@ -13,6 +13,14 @@ export class AdminUsersService {
 
   constructor(private httpClient: HttpClient) { }
 
+  public async getUser(id: string): Promise<AdminUser> {
+    const url = `${environment.apiUrl}/users/${id}`;
+
+    const user = await firstValueFrom(this.httpClient.get<AdminUser>(url));
+
+    return user;
+  }
+
   public async getUsers(): Promise<AdminUser[]> {
     const url = `${environment.apiUrl}/users`;
 
@@ -21,6 +29,30 @@ export class AdminUsersService {
     this.usersBehavior.next(users);
 
     return users;
+  }
+
+  public async addUser(name: string, permission: number, email: string, password: string): Promise<void> {
+    const url = `${environment.apiUrl}/users`;
+
+    await firstValueFrom(this.httpClient.post(url, { name, permission, email, password }));
+
+    await this.getUsers();
+  }
+
+  public async updateUser(id:string, name: string, permission: number, email: string): Promise<void> {
+    const url = `${environment.apiUrl}/users/${id}`;
+
+    await firstValueFrom(this.httpClient.put(url, { name, permission, email }));
+
+    await this.getUsers();
+  }
+
+  public async deleteUser(id: string): Promise<void> {
+    const url = `${environment.apiUrl}/users/${id}`;
+
+    await firstValueFrom(this.httpClient.delete(url));
+
+    await this.getUsers();
   }
 
   public get users() {

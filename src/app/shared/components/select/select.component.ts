@@ -1,14 +1,19 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-@Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.scss']
-})
-export class InputComponent {
+export interface SelectItem {
+  value: string;
+  label?: string;
+}
 
-  @Input() type: string = '';
+@Component({
+  selector: 'app-select',
+  templateUrl: './select.component.html',
+  styleUrls: ['./select.component.scss']
+})
+export class SelectComponent {
+
+  @Input() items: SelectItem[] = [];
   @Input() placeholder: string = '';
   @Input() label: string = '';
   @Input() control!: FormControl;

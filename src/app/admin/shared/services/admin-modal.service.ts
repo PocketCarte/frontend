@@ -1,9 +1,11 @@
-import { ElementRef, Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 export interface AdminModalData {
   title: string;
-  component: ElementRef;
+  component: any;
+  size?: string;
+  data?: any;
 }
 
 @Injectable({
@@ -11,25 +13,27 @@ export interface AdminModalData {
 })
 export class AdminModalService {
   public showingSubject = new BehaviorSubject<boolean>(false);
-  public componentSubject = new BehaviorSubject<ElementRef | undefined | null>(
-    undefined
-  );
+  public componentSubject = new BehaviorSubject<any>(null);
+  public dataSubject = new BehaviorSubject<any>(null);
   public titleSubject = new BehaviorSubject<string>('');
+  public sizeSubject = new BehaviorSubject<string>('');
 
-  public set showing(value: boolean) {
-    this.showingSubject.next(value);
-  }
-
-  // *ngComponentOutlet="componentTypeExpression"
-
-  public open(data: AdminModalData): void {
-    
+  public open(modelData: AdminModalData): void {
+    this.showingSubject.next(true);
+    this.componentSubject.next(modelData.component);
+    this.titleSubject.next(modelData.title);
+    this.sizeSubject.next(modelData.size ?? 'normal');
+    this.dataSubject.next(modelData.data);
   }
 
   public close(): void {
     this.showingSubject.next(false);
-    this.componentSubject.next(null);
-    this.titleSubject.next('');
+    setTimeout(() => {
+      this.componentSubject.next(null);
+      this.dataSubject.next(null);
+      this.titleSubject.next('');
+      this.sizeSubject.next('');
+    }, 300);
   }
 
   public get showing() {
@@ -40,11 +44,35 @@ export class AdminModalService {
     return this.showingSubject.asObservable();
   }
 
-  // public get component() {
-  //   return this..value;
-  // }
+  public get component() {
+    return this.componentSubject.value;
+  }
 
-  // public get component$() {
-  //   return this.showingSubject.asObservable();
-  // }
+  public get component$() {
+    return this.componentSubject.asObservable();
+  }
+
+  public get title() {
+    return this.titleSubject.value;
+  }
+
+  public get title$() {
+    return this.titleSubject.asObservable();
+  }
+
+  public get size() {
+    return this.sizeSubject.value;
+  }
+
+  public get size$() {
+    return this.sizeSubject.asObservable();
+  }
+
+  public get data() {
+    return this.dataSubject.value;
+  }
+
+  public get data$() {
+    return this.dataSubject.asObservable();
+  }
 }

@@ -1,20 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { SelectItem } from 'src/app/shared/components/select/select.component';
 import { AdminUsersService } from '../shared/admin-users.service';
 import { AdminModalService } from '../../shared/services/admin-modal.service';
+import { SelectItem } from 'src/app/shared/components/select/select.component';
 
 @Component({
-  selector: 'app-admin-users-add',
-  templateUrl: './admin-users-add.component.html',
-  styleUrls: ['./admin-users-add.component.scss'],
+  selector: 'app-admin-users-edit',
+  templateUrl: './admin-users-edit.component.html',
+  styleUrls: ['./admin-users-edit.component.scss'],
 })
-export class AdminUsersAddComponent {
+export class AdminUsersEditComponent implements OnInit {
   public permissionsItems: SelectItem[] = [
     {
       value: '1',
@@ -38,7 +38,6 @@ export class AdminUsersAddComponent {
     name: new FormControl('', [Validators.required]),
     permission: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required]),
   });
   private loading: boolean = false;
 
@@ -48,22 +47,32 @@ export class AdminUsersAddComponent {
     private adminModalService: AdminModalService
   ) {}
 
-  public handleAddUser(): void {
-    if(this.form.valid && !this.loading){
+  public ngOnInit(): void {
+    this.adminUsersService
+      .getUser(this.adminModalService.data.userId)
+      .then((result) => {
+        this.form.patchValue({
+          name: result.name,
+          permission: result.permission,
+          email: result.email
+        })
+      })
+      .catch(() => {
+        this.adminModalService.close();
+      });
+  }
+
+  public handleSaveUser(): void {
+    if (this.form.valid && !this.loading) {
       this.loading = true;
       this.adminUsersService
-        .addUser(
-          this.name.value,
-          this.permission.value,
-          this.email.value,
-          this.password.value
-        )
+        .updateUser(this.adminModalService.data.userId, this.name.value, this.permission.value, this.email.value)
         .then(() => {
-          alert('Usuário adicionado com sucesso');
+          alert('Usuário salvo com sucesso');
           this.adminModalService.close();
         })
         .catch(() => {
-          alert('Ocorreu um erro ao adicionar o usuário');
+          alert('Ocorreu um erro ao salvar o usuário');
         })
         .finally(() => {
           this.loading = false;
@@ -81,9 +90,5 @@ export class AdminUsersAddComponent {
 
   public get email() {
     return this.form.get('email') as FormControl;
-  }
-
-  public get password() {
-    return this.form.get('password') as FormControl;
   }
 }

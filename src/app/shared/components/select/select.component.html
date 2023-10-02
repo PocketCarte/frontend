@@ -1,0 +1,7 @@
+<div class="app-select">
+  <label *ngIf="label">{{ label }}</label>
+  <select [formControl]="control" (change)="onChange($event)">
+    <option *ngIf="placeholder" hidden selected>{{ placeholder }}</option>
+    <option *ngFor="let item of items" [value]="item.value">{{ item.label ?? item.value }}</option>
+  </select>
+</div>

@@ -1,3 +1,11 @@
-<!-- <div class="admin-modal">
-
-</div> -->
+<div class="admin-modal" [class.showing]="showing">
+    <div class="admin-modal-container" [ngClass]="size">
+        <div class="admin-modal-header">
+            <div class="admin-modal-header-title" *ngIf="title">{{ title }}</div>
+            <div class="admin-modal-header-close" (click)="adminModalService.close()"><i class="bi bi-x-lg"></i></div>
+        </div>
+        <div class="admin-modal-body" *ngIf="component">
+            <ng-container *ngComponentOutlet="component"></ng-container>
+        </div>
+    </div>
+</div>

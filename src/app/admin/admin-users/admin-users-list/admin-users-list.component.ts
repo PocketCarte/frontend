@@ -3,6 +3,9 @@ import { AdminUser } from '../../shared/types/admin-user';
 import { AdminUsersService } from '../shared/admin-users.service';
 import { Subscription } from 'rxjs';
 import { AdminSpinnerService } from '../../shared/services/admin-spinner.service';
+import { AdminModalService } from '../../shared/services/admin-modal.service';
+import { AdminUsersAddComponent } from '../admin-users-add/admin-users-add.component';
+import { AdminUsersEditComponent } from '../admin-users-edit/admin-users-edit.component';
 
 @Component({
   selector: 'app-admin-users-list',
@@ -36,7 +39,7 @@ export class AdminUsersListComponent implements OnInit,OnDestroy{
   public data: AdminUser[] = [];
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private adminUsersService: AdminUsersService, public adminSpinnerService: AdminSpinnerService) {}
+  constructor(private adminUsersService: AdminUsersService, public adminSpinnerService: AdminSpinnerService, private adminModalService: AdminModalService) {}
 
   public async ngOnInit(): Promise<void> {
     this.adminSpinnerService.showing = true;
@@ -51,6 +54,31 @@ export class AdminUsersListComponent implements OnInit,OnDestroy{
 
   public ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+  }
+
+  public onOpenAdd(): void {
+    this.adminModalService.open({
+      title: 'Adicionar usuário',
+      component: AdminUsersAddComponent
+    })
+  }
+
+  public handleDeleteUser(event: any): void {
+    this.adminUsersService.deleteUser(event.id).then(() => {
+      alert(`Usuário ${event.name} deletado com sucesso`);
+    }).catch(() => {
+      alert(`Ocorreu um erro ao deletar o usuário ${event.name}`)
+    })
+  }
+
+  public handleEditUser(event: any): void {
+    this.adminModalService.open({
+      title: 'Editar usuário',
+      component: AdminUsersEditComponent,
+      data: {
+        userId: event.id
+      }
+    })
   }
 
 }

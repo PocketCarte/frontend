@@ -1,4 +1,7 @@
-<div class="admin-table">
+<ng-container *ngIf="data.length == 0">
+  <p class="admin-table-not-data">Não há nenhum dado inserido até o momento.</p>
+</ng-container>
+<div class="admin-table" *ngIf="data.length > 0">
   <div class="admin-table-header">
     <div class="admin-table-header-column" *ngFor="let option of options">
       <ng-container *ngIf="!option.deleteButton && !option.editButton">

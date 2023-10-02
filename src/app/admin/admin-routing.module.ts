@@ -5,6 +5,7 @@ import { AdminAuthGuard } from './shared/guards/admin-auth.guard';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AdminUsersListComponent } from './admin-users/admin-users-list/admin-users-list.component';
+import { AdminTablesListComponent } from './admin-tables/admin-tables-list/admin-tables-list.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,21 @@ const routes: Routes = [
         data: { checkRoute: '/admin/dashboard' },
         canActivate: [AdminAuthGuard],
         component: AdminDashboardComponent,
+      },
+      {
+        path: 'tables',
+        canActivate: [AdminAuthGuard],
+        children: [
+          {
+            path: 'list',
+            data: { checkRoute: '/admin/tables' },
+            component: AdminTablesListComponent
+          },
+          {
+            path: '**',
+            redirectTo: 'list'
+          }
+        ]
       },
       {
         path: 'users',

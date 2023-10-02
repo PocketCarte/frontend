@@ -56,7 +56,7 @@ export class AdminUsersListComponent implements OnInit,OnDestroy{
     this.subscriptions.unsubscribe();
   }
 
-  public onOpenAdd(): void {
+  public handleAddUser(): void {
     this.adminModalService.open({
       title: 'Adicionar usuário',
       component: AdminUsersAddComponent

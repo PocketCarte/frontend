@@ -1,7 +1,7 @@
 <app-admin-body>
     <div class="admin-user-list-header">
         <p>Usuários</p>
-        <app-button size="normal" (clicked)="onOpenAdd()">Adicionar um usuário</app-button>
+        <app-button size="normal" (clicked)="handleAddUser()">Adicionar um usuário</app-button>
     </div>
     <app-admin-table [options]="tableOptions" [data]="data" (deleteClick)="handleDeleteUser($event)" (editClick)="handleEditUser($event)"></app-admin-table>
 </app-admin-body>

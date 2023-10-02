@@ -4,14 +4,14 @@
     flex-direction: column;
     border-radius: 4px;
     border: 1px solid #20170e;
-
+    
     &-header{
         width: 100%;
         display: flex;
         align-items: center;
         background-color: #20170e;
         padding: 15px;
-
+        
         &-column{
             flex: 1;
             display: flex;
@@ -23,23 +23,23 @@
             color: white;
         }
     }
-
+    
     &-body{
         width: 100%;
         display: flex;
         align-items: center;
         flex-direction: column;
-
+        
         &-data{
             width: 100%;
             display: flex;
             padding: 15px;
             align-items: center;
-
+            
             &:not(:last-child) {
                 border-bottom: 1px solid #20170e;
             }
-
+            
             &-column{
                 flex: 1;
                 display: flex;
@@ -57,5 +57,13 @@
             }
         }
     }
+}
 
+.admin-table-not-data{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 300;
+    font-size: 25px;
 }

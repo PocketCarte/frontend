@@ -20,6 +20,9 @@ import { AdminSpinnerComponent } from './shared/components/admin-spinner/admin-s
 import { AdminTableComponent } from './shared/components/admin-table/admin-table.component';
 import { AdminModalComponent } from './shared/components/admin-modal/admin-modal.component';
 import { AdminUsersEditComponent } from './admin-users/admin-users-edit/admin-users-edit.component';
+import { AdminTablesListComponent } from './admin-tables/admin-tables-list/admin-tables-list.component';
+import { AdminTablesAddComponent } from './admin-tables/admin-tables-add/admin-tables-add.component';
+import { AdminTablesEditComponent } from './admin-tables/admin-tables-edit/admin-tables-edit.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { AdminUsersEditComponent } from './admin-users/admin-users-edit/admin-us
     AdminTableComponent,
     AdminModalComponent,
     AdminUsersEditComponent,
+    AdminTablesListComponent,
+    AdminTablesAddComponent,
+    AdminTablesEditComponent,
   ],
   imports: [
     CommonModule,

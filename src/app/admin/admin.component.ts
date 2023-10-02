@@ -10,7 +10,7 @@ import { AdminUserService } from './shared/services/admin-user.service';
 })
 export class AdminComponent {
 
-  constructor(private route: ActivatedRoute, private title: Title, private adminUserService: AdminUserService) {
+  constructor(private route: ActivatedRoute, private title: Title, private adminUserService: AdminUserService, private activatedRoute: ActivatedRoute) {
     this.title.setTitle('PocketCarte | Administrativo');
     this.adminUserService.loadUser();
   }

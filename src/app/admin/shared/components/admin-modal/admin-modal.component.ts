@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { AdminModalService } from '../../services/admin-modal.service';
 import { Subscription } from 'rxjs';
-import { AdminUsersAddComponent } from 'src/app/admin/admin-users/admin-users-add/admin-users-add.component';
 
 @Component({
   selector: 'app-admin-modal',

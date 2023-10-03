@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import { AdminCategoriesService } from '../shared/admin-categories.service';
+import { AdminSpinnerService } from '../../shared/services/admin-spinner.service';
+import { AdminModalService } from '../../shared/services/admin-modal.service';
+import { Subscription } from 'rxjs';
+import { AdminCategory } from '../../shared/types/admin-category';
+import { AdminCategoriesAddComponent } from '../admin-categories-add/admin-categories-add.component';
+import { AdminCategoriesEditComponent } from '../admin-categories-edit/admin-categories-edit.component';
 
 @Component({
   selector: 'app-admin-categories-list',
@@ -6,5 +13,62 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-categories-list.component.scss']
 })
 export class AdminCategoriesListComponent {
+  public tableOptions = [
+    {
+      label: 'ID',
+      column: 'id',
+    },
+    {
+      label: 'Nome',
+      column: 'name',
+    },
+    {
+      deleteButton: true,
+      editButton: true,
+    },
+  ];
+  public data: AdminCategory[] = [];
+  private subscriptions: Subscription = new Subscription();
 
+  constructor(private adminCategoriesService: AdminCategoriesService, public adminSpinnerService: AdminSpinnerService, private adminModalService: AdminModalService) {}
+
+  public async ngOnInit(): Promise<void> {
+    this.adminSpinnerService.showing = true;
+    await this.adminCategoriesService.getCategories();
+    this.adminSpinnerService.showing = false;
+    this.subscriptions.add(
+      this.adminCategoriesService.categories$.subscribe((result) => {
+        this.data = result;
+      })
+    )
+  }
+
+  public ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
+  }
+
+  public handleAddCategory(): void {
+    this.adminModalService.open({
+      title: 'Adicionar categoria',
+      component: AdminCategoriesAddComponent
+    })
+  }
+
+  public handleDeleteCategory(event: any): void {
+    this.adminCategoriesService.deleteCategory(event.id).then(() => {
+      alert(`Categoria ${event.name} deletada com sucesso`);
+    }).catch(() => {
+      alert(`Ocorreu um erro ao deletar a categoria ${event.name}`)
+    })
+  }
+
+  public handleEditCategory(event: any): void {
+    this.adminModalService.open({
+      title: 'Editar categoria',
+      component: AdminCategoriesEditComponent,
+      data: {
+        categoryId: event.id
+      }
+    })
+  }
 }

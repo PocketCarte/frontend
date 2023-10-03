@@ -1,1 +1,7 @@
-<p>admin-categories-list works!</p>
+<app-admin-body>
+    <div class="admin-categories-list-header">
+        <p>Categorias</p>
+        <app-button size="normal" (clicked)="handleAddCategory()">Adicionar uma categoria</app-button>
+    </div>
+    <app-admin-table [options]="tableOptions" [data]="data" (deleteClick)="handleDeleteCategory($event)" (editClick)="handleEditCategory($event)"></app-admin-table>
+</app-admin-body>

@@ -4,11 +4,11 @@ import { AdminCategoriesService } from '../shared/admin-categories.service';
 import { AdminModalService } from '../../shared/services/admin-modal.service';
 
 @Component({
-  selector: 'app-admin-categories-add',
-  templateUrl: './admin-categories-add.component.html',
-  styleUrls: ['./admin-categories-add.component.scss']
+  selector: 'app-admin-categories-edit',
+  templateUrl: './admin-categories-edit.component.html',
+  styleUrls: ['./admin-categories-edit.component.scss']
 })
-export class AdminCategoriesAddComponent {
+export class AdminCategoriesEditComponent {
   private form: FormGroup = this.fb.group({
     name: new FormControl('', [Validators.required]),
   });
@@ -20,19 +20,33 @@ export class AdminCategoriesAddComponent {
     private adminModalService: AdminModalService
   ) {}
 
-  public handleAddCategory(): void {
+  public ngOnInit(): void {
+    this.adminCategoriesService
+      .getCategory(this.adminModalService.data.categoryId)
+      .then((result) => {
+        this.form.patchValue({
+          name: result.name
+        })
+      })
+      .catch(() => {
+        this.adminModalService.close();
+      });
+  }
+
+  public handleSaveCategory(): void {
     if(this.form.valid && !this.loading){
       this.loading = true;
       this.adminCategoriesService
-        .addCategory(
+        .updateCategory(
+          this.adminModalService.data.categoryId,
           this.name.value
         )
         .then(() => {
-          alert('Categoria adicionada com sucesso');
+          alert('Categoria salva com sucesso');
           this.adminModalService.close();
         })
         .catch(() => {
-          alert('Ocorreu um erro ao adicionar a categoria');
+          alert('Ocorreu um erro ao salvar a categoria');
         })
         .finally(() => {
           this.loading = false;

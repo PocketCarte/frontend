@@ -1,0 +1,11 @@
+<div class="admin-products-add">
+    <form class="admin-products-add-form" (ngSubmit)="handleAddCategory()">
+        <div class="admin-products-add-form-body">
+            <app-input label="Nome:" [control]="name"></app-input>
+            <app-input label="Preço:" type="number" [control]="price"></app-input>
+            <app-select label="Categoria:" [items]="categoriesOptions" [control]="category_id"></app-select>
+            <app-upload-image [control]="image" label="Imagem:"></app-upload-image>
+        </div>
+        <app-button type="submit">Adicionar</app-button>
+    </form>
+</div>

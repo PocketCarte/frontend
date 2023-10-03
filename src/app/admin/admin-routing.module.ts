@@ -7,6 +7,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminUsersListComponent } from './admin-users/admin-users-list/admin-users-list.component';
 import { AdminTablesListComponent } from './admin-tables/admin-tables-list/admin-tables-list.component';
 import { AdminCategoriesListComponent } from './admin-categories/admin-categories-list/admin-categories-list.component';
+import { AdminProductsListComponent } from './admin-products/admin-products-list/admin-products-list.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,21 @@ const routes: Routes = [
             path: 'list',
             data: { checkRoute: '/admin/categories' },
             component: AdminCategoriesListComponent
+          },
+          {
+            path: '**',
+            redirectTo: 'list'
+          }
+        ]
+      },
+      {
+        path: 'products',
+        canActivate: [AdminAuthGuard],
+        children: [
+          {
+            path: 'list',
+            data: { checkRoute: '/admin/products' },
+            component: AdminProductsListComponent
           },
           {
             path: '**',

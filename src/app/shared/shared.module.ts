@@ -7,6 +7,7 @@ import { InputComponent } from './components/input/input.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SelectComponent } from './components/select/select.component';
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SelectComponent } from './components/select/select.component';
     FooterComponent,
     ButtonComponent,
     InputComponent,
-    SelectComponent
+    SelectComponent,
+    UploadImageComponent
   ],
   imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule],
   exports: [
@@ -23,6 +25,7 @@ import { SelectComponent } from './components/select/select.component';
     ButtonComponent,
     InputComponent,
     SelectComponent,
+    UploadImageComponent,
     CommonModule,
   ],
 })

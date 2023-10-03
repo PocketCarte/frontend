@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminCategoriesService } from '../shared/admin-categories.service';
 import { AdminModalService } from '../../shared/services/admin-modal.service';
@@ -8,7 +8,7 @@ import { AdminModalService } from '../../shared/services/admin-modal.service';
   templateUrl: './admin-categories-edit.component.html',
   styleUrls: ['./admin-categories-edit.component.scss']
 })
-export class AdminCategoriesEditComponent {
+export class AdminCategoriesEditComponent implements OnInit {
   private form: FormGroup = this.fb.group({
     name: new FormControl('', [Validators.required]),
   });

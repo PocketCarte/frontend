@@ -23,6 +23,16 @@
               </ng-container>
             </div>
           </ng-container>
+          <ng-container *ngIf="option.imageColumn">
+            <div class="admin-table-body-data-column image">
+              <img [src]="d[option.imageColumn]" alt="Imagem">
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.moneyColumn">
+            <div class="admin-table-body-data-column">
+              {{ d[option.moneyColumn] | currency }}
+            </div>
+          </ng-container>
           <ng-container *ngIf="option.column">
             <div class="admin-table-body-data-column">
               {{ d[option.column] }}

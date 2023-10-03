@@ -24,6 +24,9 @@ import { AdminTablesListComponent } from './admin-tables/admin-tables-list/admin
 import { AdminTablesAddComponent } from './admin-tables/admin-tables-add/admin-tables-add.component';
 import { AdminTablesEditComponent } from './admin-tables/admin-tables-edit/admin-tables-edit.component';
 import { AdminCategoriesEditComponent } from './admin-categories/admin-categories-edit/admin-categories-edit.component';
+import { AdminProductsListComponent } from './admin-products/admin-products-list/admin-products-list.component';
+import { AdminProductsAddComponent } from './admin-products/admin-products-add/admin-products-add.component';
+import { AdminProductsEditComponent } from './admin-products/admin-products-edit/admin-products-edit.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { AdminCategoriesEditComponent } from './admin-categories/admin-categorie
     AdminTablesAddComponent,
     AdminTablesEditComponent,
     AdminCategoriesEditComponent,
+    AdminProductsListComponent,
+    AdminProductsAddComponent,
+    AdminProductsEditComponent,
   ],
   imports: [
     CommonModule,

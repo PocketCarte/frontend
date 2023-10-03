@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AdminCategoriesService } from '../shared/admin-categories.service';
 import { AdminSpinnerService } from '../../shared/services/admin-spinner.service';
 import { AdminModalService } from '../../shared/services/admin-modal.service';
@@ -12,7 +12,7 @@ import { AdminCategoriesEditComponent } from '../admin-categories-edit/admin-cat
   templateUrl: './admin-categories-list.component.html',
   styleUrls: ['./admin-categories-list.component.scss']
 })
-export class AdminCategoriesListComponent {
+export class AdminCategoriesListComponent implements OnInit, OnDestroy {
   public tableOptions = [
     {
       label: 'ID',

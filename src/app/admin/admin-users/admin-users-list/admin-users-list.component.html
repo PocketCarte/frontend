@@ -3,5 +3,5 @@
         <p>Usuários</p>
         <app-button size="normal" (clicked)="handleAddUser()">Adicionar um usuário</app-button>
     </div>
-    <app-admin-table [options]="tableOptions" [data]="data" (deleteClick)="handleDeleteUser($event)" (editClick)="handleEditUser($event)"></app-admin-table>
+    <app-admin-table [options]="tableOptions" [data]="adminUsersService.users$" (deleteClick)="handleDeleteUser($event)" (editClick)="handleEditUser($event)"></app-admin-table>
 </app-admin-body>

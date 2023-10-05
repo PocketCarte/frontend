@@ -35,7 +35,7 @@ export class AdminTablesListComponent implements OnInit, OnDestroy{
   public data: AdminTable[] = [];
   private subscriptions: Subscription = new Subscription();
   
-  constructor(private adminTablesService: AdminTablesService, public adminSpinnerService: AdminSpinnerService, private adminModalService: AdminModalService) {}
+  constructor(public adminTablesService: AdminTablesService, public adminSpinnerService: AdminSpinnerService, private adminModalService: AdminModalService) {}
 
   public async ngOnInit(): Promise<void> {
     this.adminSpinnerService.showing = true;

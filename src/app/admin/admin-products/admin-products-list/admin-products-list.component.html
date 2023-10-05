@@ -3,5 +3,5 @@
         <p>Produtos</p>
         <app-button size="normal" (clicked)="handleAddProduct()">Adicionar um produto</app-button>
     </div>
-    <app-admin-table [options]="tableOptions" [data]="data" (deleteClick)="handleDeleteProduct($event)" (editClick)="handleEditProduct($event)"></app-admin-table>
+    <app-admin-table [options]="tableOptions" [data]="adminProductsService.products$" (deleteClick)="handleDeleteProduct($event)" (editClick)="handleEditProduct($event)"></app-admin-table>
 </app-admin-body>

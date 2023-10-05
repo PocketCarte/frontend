@@ -3,5 +3,5 @@
         <p>Categorias</p>
         <app-button size="normal" (clicked)="handleAddCategory()">Adicionar uma categoria</app-button>
     </div>
-    <app-admin-table [options]="tableOptions" [data]="data" (deleteClick)="handleDeleteCategory($event)" (editClick)="handleEditCategory($event)"></app-admin-table>
+    <app-admin-table [options]="tableOptions" [data]="adminCategoriesService.categories$" (deleteClick)="handleDeleteCategory($event)" (editClick)="handleEditCategory($event)"></app-admin-table>
 </app-admin-body>

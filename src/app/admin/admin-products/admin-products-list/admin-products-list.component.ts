@@ -38,7 +38,7 @@ export class AdminProductsListComponent implements OnInit, OnDestroy{
   public data: AdminProduct[] = [];
   private subscriptions: Subscription = new Subscription();
   
-  constructor(private adminProductsService: AdminProductsService, public adminSpinnerService: AdminSpinnerService, private adminModalService: AdminModalService) {}
+  constructor(public adminProductsService: AdminProductsService, public adminSpinnerService: AdminSpinnerService, private adminModalService: AdminModalService) {}
 
   public async ngOnInit(): Promise<void> {
     this.adminSpinnerService.showing = true;

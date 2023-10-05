@@ -66,6 +66,43 @@
             }
         }
     }
+
+    &-footer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #20170e;
+        column-gap: 50px;
+        padding: 15px;
+        
+        &-arrow{
+            color: white;
+            background-color: transparent;
+            padding: 10px;
+            border: 1px solid white;
+            border-radius: 8px;
+            transition: all ease-in-out 0.3s;
+            cursor: pointer;
+
+            &:hover{
+                background-color: white;
+                color: #20170e;
+            }
+
+            &:disabled{
+                opacity: 0.5;
+                background-color: white;
+                color: #20170e;
+            }
+        }
+
+        &-page{
+            font-size: 25px;
+            font-weight: 300;
+            color: white;
+        }
+    }
 }
 
 .admin-table-not-data{

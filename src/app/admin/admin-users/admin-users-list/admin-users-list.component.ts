@@ -39,7 +39,7 @@ export class AdminUsersListComponent implements OnInit,OnDestroy{
   public data: AdminUser[] = [];
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private adminUsersService: AdminUsersService, public adminSpinnerService: AdminSpinnerService, private adminModalService: AdminModalService) {}
+  constructor(public adminUsersService: AdminUsersService, public adminSpinnerService: AdminSpinnerService, private adminModalService: AdminModalService) {}
 
   public async ngOnInit(): Promise<void> {
     this.adminSpinnerService.showing = true;

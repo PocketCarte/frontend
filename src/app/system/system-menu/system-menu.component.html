@@ -8,22 +8,24 @@
 
       </div>
     </div>
-    <div class="system-menu-container-categorias">
-      <div class="categoria">
-        Lanches
+    <div class="system-menu-container-category">
+      <div class="system-menu-container-category-list">
+        <div (click)="systemService.changeCurrentCategory(category.id)" *ngFor="let category of categories" class="system-menu-container-category-list-item">
+          {{ category.name }}
+        </div>
       </div>
     </div>
     <div class="system-menu-container-lista">
-      <div class="system-menu-container-lista-item">
+      <div *ngFor="let product of products" class="system-menu-container-lista-item">
         <div class="system-menu-container-lista-item-image">
-          <img src="../../../assets/images/logo-white.png" alt="">
+          <img [src]="product.image" alt="" width="100">
         </div>
         <div class="system-menu-container-lista-item-description">
           <div class="system-menu-container-lista-item-description-title">
-            Hambúrger Duplo Cheddar
+            {{ product.name }}
           </div>
           <div class="system-menu-container-lista-item-description-price">
-            R$ 34,99
+            {{ product.price }}
           </div>
           <div class="system-menu-container-lista-item-description-igredients">
             Pão com gergelim, 2 hambúrgueres, tomate, alface e fatias de cheddar.

@@ -1,16 +1,25 @@
 .app-admin-sidebar {
   background-color: #563b20;
-  width: 54px;
+  width: 50px;
   height: 100%;
-  min-height: calc(100vh - 60px);
+  max-height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
+  position: absolute;
+  left: 0px;
+  z-index: 300;
+  transition: all 0.5s ease-in-out;
+
+  &:hover{
+    width: 250px;
+  }
 
   &-card {
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    overflow: hidden;
 
     &:hover {
       background-color: #20170e;
@@ -27,11 +36,15 @@
     a {
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 10px 0px;
+      justify-content: flex-start;
+      column-gap: 10px;
+      padding: 10px 12px;
       width: 100%;
       font-size: 28px;
       color: white;
+      position: relative;
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: 0.8s;
     }
   }
 }

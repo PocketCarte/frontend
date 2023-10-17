@@ -9,5 +9,11 @@
         "parser": "angular"
       }
     }
+  ],
+  "prettier/prettier": [
+    "error",
+    {
+      "endOfLine": "auto"
+    }
   ]
 }

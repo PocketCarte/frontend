@@ -3,11 +3,20 @@
 </ng-container>
 <div class="admin-table" *ngIf="dataTotal.length > 0">
   <div class="admin-table-header">
-    <div class="admin-table-header-column" *ngFor="let option of options">
-      <ng-container *ngIf="!option.deleteButton && !option.editButton">
+    <ng-container *ngFor="let option of options">
+      <div
+        class="admin-table-header-column actions"
+        *ngIf="option.deleteButton || option.editButton || option.cancelButton"
+      ></div>
+      <div
+        class="admin-table-header-column"
+        *ngIf="
+          !option.deleteButton && !option.editButton && !option.cancelButton
+        "
+      >
         {{ option.label }}
-      </ng-container>
-    </div>
+      </div>
+    </ng-container>
   </div>
   <div class="admin-table-body">
     <ng-container *ngFor="let d of dataTable">

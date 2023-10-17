@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable, Observer, firstValueFrom } from "rxjs";
 import { environment } from "src/environments/environment";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";s
 import { AdminOrder } from "../../shared/types/admin-order";
 
 @Injectable({
@@ -10,10 +10,10 @@ import { AdminOrder } from "../../shared/types/admin-order";
 })
 export class AdminOrdersService {
   private ordersSubject = new BehaviorSubject<AdminOrder[]>([]);
-  private socket;
+  // private socket;
 
   constructor(private httpClient: HttpClient) {
-    this.socket = io(environment.apiUrl);
+    // this.socket = io(environment.apiUrl);
     this.ordersRefresh().subscribe(() => {
       this.getOrders();
     });
@@ -70,9 +70,9 @@ export class AdminOrdersService {
 
   public ordersRefresh(): Observable<boolean> {
     return new Observable((observer: Observer<boolean>) => {
-      this.socket.on("refresh_orders", () => {
-        observer.next(true);
-      });
+      // this.socket.on("refresh_orders", () => {
+      //   observer.next(true);
+      // });
     });
   }
 

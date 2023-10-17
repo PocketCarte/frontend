@@ -58,6 +58,7 @@
       flex-direction: column;
       gap: 12px;
       background-color: aqua;
+      overflow-y: scroll;
 
       &-item {
         display: flex;
@@ -73,6 +74,11 @@
           align-items: center;
           justify-content: center;
           border-radius: 12px;
+          overflow: hidden;
+
+          img {
+            height: 100%;
+          }
         }
 
         &-description {

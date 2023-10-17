@@ -1,0 +1,14 @@
+<app-admin-body>
+  <div class="admin-orders-list-header">
+    <p>Pedidos</p>
+    <app-button size="normal" (clicked)="handleAddOrder()"
+      >Adicionar um pedido</app-button
+    >
+  </div>
+  <app-admin-table
+    [options]="tableOptions"
+    [data]="adminOrdersService.orders$"
+    (cancelClick)="handleCancelOrder($event)"
+    (editClick)="handleEditOrder($event)"
+  ></app-admin-table>
+</app-admin-body>

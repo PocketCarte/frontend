@@ -1,23 +1,22 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { AdminTable } from '../../shared/types/admin-table';
-import { environment } from 'src/environments/environment';
-import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { AdminTable } from "../../shared/types/admin-table";
+import { environment } from "src/environments/environment";
+import { BehaviorSubject, firstValueFrom } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AdminTablesService {
-
   private tablesSubject = new BehaviorSubject<AdminTable[]>([]);
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public async getTables(): Promise<AdminTable[]> {
     const url = `${environment.apiUrl}/tables`;
 
     const tables = await firstValueFrom(this.httpClient.get<AdminTable[]>(url));
-    
+
     this.tablesSubject.next(tables);
 
     return tables;
@@ -39,7 +38,11 @@ export class AdminTablesService {
     await this.getTables();
   }
 
-  public async updateTable(id: string, name: string, status: number): Promise<void> {
+  public async updateTable(
+    id: string,
+    name: string,
+    status: number,
+  ): Promise<void> {
     const url = `${environment.apiUrl}/tables/${id}`;
 
     await firstValueFrom(this.httpClient.put(url, { name, status }));

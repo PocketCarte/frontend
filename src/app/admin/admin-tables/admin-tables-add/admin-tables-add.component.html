@@ -1,8 +1,8 @@
 <div class="admin-tables-add">
-    <form class="admin-tables-add-form" (ngSubmit)="handleAddUser()">
-        <div class="admin-tables-add-form-body">
-            <app-input label="Nome:" [control]="name"></app-input>
-        </div>
-        <app-button type="submit">Adicionar</app-button>
-    </form>
+  <form class="admin-tables-add-form" (ngSubmit)="handleAddTable()">
+    <div class="admin-tables-add-form-body">
+      <app-input label="Nome:" [control]="name"></app-input>
+    </div>
+    <app-button type="submit">Adicionar</app-button>
+  </form>
 </div>

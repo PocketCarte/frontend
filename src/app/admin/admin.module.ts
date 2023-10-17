@@ -27,6 +27,10 @@ import { AdminCategoriesEditComponent } from './admin-categories/admin-categorie
 import { AdminProductsListComponent } from './admin-products/admin-products-list/admin-products-list.component';
 import { AdminProductsAddComponent } from './admin-products/admin-products-add/admin-products-add.component';
 import { AdminProductsEditComponent } from './admin-products/admin-products-edit/admin-products-edit.component';
+import { AdminOrdersListComponent } from './admin-orders/admin-orders-list/admin-orders-list.component';
+import { AdminOrdersAddComponent } from './admin-orders/admin-orders-add/admin-orders-add.component';
+import { AdminOrdersEditComponent } from './admin-orders/admin-orders-edit/admin-orders-edit.component';
+import { AdminOrdersKitchenComponent } from './admin-orders/admin-orders-kitchen/admin-orders-kitchen.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +55,10 @@ import { AdminProductsEditComponent } from './admin-products/admin-products-edit
     AdminProductsListComponent,
     AdminProductsAddComponent,
     AdminProductsEditComponent,
+    AdminOrdersListComponent,
+    AdminOrdersAddComponent,
+    AdminOrdersEditComponent,
+    AdminOrdersKitchenComponent,
   ],
   imports: [
     CommonModule,

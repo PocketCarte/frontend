@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { AdminProduct } from '../../shared/types/admin-product';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, firstValueFrom } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { AdminProduct } from "../../shared/types/admin-product";
+import { environment } from "src/environments/environment";
+import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, firstValueFrom } from "rxjs";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AdminProductsService {
   private productsSubject = new BehaviorSubject<AdminProduct[]>([]);
@@ -16,7 +16,7 @@ export class AdminProductsService {
     const url = `${environment.apiUrl}/products`;
 
     const products = await firstValueFrom(
-      this.httpClient.get<AdminProduct[]>(url)
+      this.httpClient.get<AdminProduct[]>(url),
     );
 
     this.productsSubject.next(products);
@@ -24,11 +24,26 @@ export class AdminProductsService {
     return products;
   }
 
-  public async getProduct(id: string, category_id: string): Promise<AdminProduct> {
+  public async getProductsByCategory(
+    category_id: string,
+  ): Promise<AdminProduct[]> {
+    const url = `${environment.apiUrl}/categories/${category_id}/products`;
+
+    const products = await firstValueFrom(
+      this.httpClient.get<AdminProduct[]>(url),
+    );
+
+    return products;
+  }
+
+  public async getProduct(
+    id: string,
+    category_id: string,
+  ): Promise<AdminProduct> {
     const url = `${environment.apiUrl}/categories/${category_id}/products/${id}`;
 
     const product = await firstValueFrom(
-      this.httpClient.get<AdminProduct>(url)
+      this.httpClient.get<AdminProduct>(url),
     );
 
     return product;
@@ -38,12 +53,12 @@ export class AdminProductsService {
     name: string,
     price: number,
     category_id: string,
-    file: any
+    file: any,
   ): Promise<void> {
     const formData = new FormData();
-    formData.append('name', name);
-    formData.append('price', String(price));
-    formData.append('image', file);
+    formData.append("name", name);
+    formData.append("price", String(price));
+    formData.append("image", file);
 
     const url = `${environment.apiUrl}/categories/${category_id}/products`;
 
@@ -57,12 +72,12 @@ export class AdminProductsService {
     name: string,
     price: number,
     category_id: string,
-    file: File
+    file: File,
   ): Promise<void> {
     const formData = new FormData();
-    formData.append('name', name);
-    formData.append('price', String(price));
-    formData.append('image', file);
+    formData.append("name", name);
+    formData.append("price", String(price));
+    formData.append("image", file);
 
     const url = `${environment.apiUrl}/categories/${category_id}/products/${id}`;
 

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Observable } from "rxjs";
 
 export interface AdminTableColumn {
   label?: string;
@@ -8,12 +8,11 @@ export interface AdminTableColumn {
 }
 
 @Component({
-  selector: 'app-admin-table',
-  templateUrl: './admin-table.component.html',
-  styleUrls: ['./admin-table.component.scss']
+  selector: "app-admin-table",
+  templateUrl: "./admin-table.component.html",
+  styleUrls: ["./admin-table.component.scss"],
 })
-export class AdminTableComponent implements OnInit{
-
+export class AdminTableComponent implements OnInit {
   @Input()
   data!: Observable<any>;
 
@@ -26,23 +25,29 @@ export class AdminTableComponent implements OnInit{
   @Output()
   editClick: EventEmitter<any> = new EventEmitter();
 
-  public page: number = 1;
-  public pageCount: number = 0;
-  public limit: number = 6;
+  @Output()
+  cancelClick: EventEmitter<any> = new EventEmitter();
+
+  public page = 1;
+  public pageCount = 0;
+  public limit = 6;
   public dataTotal: any[] = [];
   public dataTable: any;
-  
+
   public ngOnInit(): void {
     this.data.subscribe((test) => {
       this.page = 1;
       this.pageCount = Math.ceil(test.length / this.limit);
       this.dataTotal = test;
       this.refreshDataTable();
-    })
+    });
   }
 
   private refreshDataTable(): void {
-    this.dataTable = this.dataTotal.slice(this.page * this.limit - this.limit, this.page * this.limit);
+    this.dataTable = this.dataTotal.slice(
+      this.page * this.limit - this.limit,
+      this.page * this.limit,
+    );
   }
 
   public nextPage(): void {
@@ -66,5 +71,4 @@ export class AdminTableComponent implements OnInit{
   public hasPreviewPage(): boolean {
     return this.page > 1;
   }
-
 }

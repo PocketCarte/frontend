@@ -4,6 +4,15 @@
   color: #FBFBFB;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:disabled{
+    opacity: 0.3;
+  }
+  
+  &:hover{
+    background-color: #3d2c1c;
+  }
 
   &.small {
     font-size: 14px;

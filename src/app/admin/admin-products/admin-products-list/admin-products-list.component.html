@@ -1,7 +1,14 @@
 <app-admin-body>
-    <div class="admin-products-list-header">
-        <p>Produtos</p>
-        <app-button size="normal" (clicked)="handleAddProduct()">Adicionar um produto</app-button>
-    </div>
-    <app-admin-table [options]="tableOptions" [data]="adminProductsService.products$" (deleteClick)="handleDeleteProduct($event)" (editClick)="handleEditProduct($event)"></app-admin-table>
+  <div class="admin-products-list-header">
+    <p>Produtos</p>
+    <app-button size="normal" (clicked)="handleAddProduct()"
+      >Adicionar um produto</app-button
+    >
+  </div>
+  <app-admin-table
+    [options]="tableOptions"
+    [data]="adminProductsService.products$"
+    (deleteClick)="handleDeleteProduct($event)"
+    (editClick)="handleEditProduct($event)"
+  ></app-admin-table>
 </app-admin-body>

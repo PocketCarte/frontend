@@ -1,0 +1,43 @@
+<div class="admin-orders-edit">
+  <form class="admin-orders-edit-form" (ngSubmit)="handleSaveOrder()">
+    <div class="admin-orders-edit-form-body">
+      <app-select
+        label="Mesa:"
+        [items]="tablesOptions"
+        [control]="table"
+        *ngIf="isFillable('table')"
+      ></app-select>
+      <app-select
+        label="Categoria:"
+        [items]="categoriesOptions"
+        [control]="category"
+        *ngIf="isFillable('category')"
+      ></app-select>
+      <app-select
+        label="Produto:"
+        [items]="productsOptions"
+        [control]="product"
+        *ngIf="isFillable('product')"
+      ></app-select>
+      <app-input
+        label="Quantidade:"
+        [control]="quantity"
+        *ngIf="isFillable('quantity')"
+      ></app-input>
+      <app-input
+        label="Descrição:"
+        [control]="description"
+        *ngIf="isFillable('description')"
+      ></app-input>
+      <app-select
+        label="Status:"
+        [items]="statusOptions"
+        [control]="status"
+        *ngIf="isFillable('status')"
+      ></app-select>
+    </div>
+    <app-button type="submit" [disabled]="loading || !form.valid"
+      >Salvar</app-button
+    >
+  </form>
+</div>

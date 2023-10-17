@@ -1,12 +1,17 @@
 <div class="admin-tables-edit" *ngIf="table">
-    <form class="admin-tables-edit-form" (ngSubmit)="handleSaveUser()">
-        <div class="admin-tables-edit-form-body">
-            <app-input label="Nome:" [control]="name"></app-input>
-            <app-select label="Status:" placeholder="Selecione" [items]="statusItems" [control]="status"></app-select>
-            <div class="admin-tables-edit-form-body-qr_code">
-                <img [src]="table.qr_code" alt="Qr code">
-            </div>
-        </div>
-        <app-button type="submit">Salvar</app-button>
-    </form>
+  <form class="admin-tables-edit-form" (ngSubmit)="handleSaveTable()">
+    <div class="admin-tables-edit-form-body">
+      <app-input label="Nome:" [control]="name"></app-input>
+      <app-select
+        label="Status:"
+        placeholder="Selecione"
+        [items]="statusItems"
+        [control]="status"
+      ></app-select>
+      <div class="admin-tables-edit-form-body-qr_code">
+        <img [src]="table.qr_code" alt="Qr code" />
+      </div>
+    </div>
+    <app-button type="submit">Salvar</app-button>
+  </form>
 </div>

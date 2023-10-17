@@ -1,0 +1,37 @@
+<div class="admin-orders-add">
+  <form class="admin-orders-add-form" (ngSubmit)="handleAddOrder()">
+    <div class="admin-orders-add-form-body">
+      <app-select
+        label="Mesa:"
+        [items]="tablesOptions"
+        [control]="table"
+        *ngIf="isFillable('table')"
+      ></app-select>
+      <app-select
+        label="Categoria:"
+        [items]="categoriesOptions"
+        [control]="category"
+        *ngIf="isFillable('category')"
+      ></app-select>
+      <app-select
+        label="Produto:"
+        [items]="productsOptions"
+        [control]="product"
+        *ngIf="isFillable('product')"
+      ></app-select>
+      <app-input
+        label="Quantidade:"
+        [control]="quantity"
+        *ngIf="isFillable('quantity')"
+      ></app-input>
+      <app-input
+        label="Descrição:"
+        [control]="description"
+        *ngIf="isFillable('description')"
+      ></app-input>
+    </div>
+    <app-button type="submit" [disabled]="loading || !form.valid"
+      >Adicionar</app-button
+    >
+  </form>
+</div>

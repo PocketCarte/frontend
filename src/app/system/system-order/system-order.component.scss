@@ -1,0 +1,37 @@
+.system-order {
+  width: 100%;
+  height: 100vh;
+  padding: 16px 0px;
+  line-height: 1;
+
+  &-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    &-title {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+      align-items: center;
+
+      h1 {
+        font-size: 24px;
+        font-weight: 700;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+    &-total {
+      font-size: 24px;
+      font-weight: 600;
+    }
+  }
+}

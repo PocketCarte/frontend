@@ -1,14 +1,16 @@
 <div class="app-admin-sidebar">
-  <ng-container *ngFor="let sidebarItem of sidebarItems">
-    <div
-      class="app-admin-sidebar-card"
-      *ngIf="adminAuthorizerService.hasRoutePermission(sidebarItem.route)"
-      [class.selected]="isSelected(sidebarItem.route)"
-    >
-      <a [routerLink]="sidebarItem.route">
-        <i class="bi" [ngClass]="sidebarItem.icon"></i>
-        <p>{{ sidebarItem.label }}</p>
-      </a>
-    </div>
-  </ng-container>
+  <div class="app-admin-sidebar-container">
+    <ng-container *ngFor="let sidebarItem of sidebarItems">
+      <div
+        class="app-admin-sidebar-card"
+        *ngIf="adminAuthorizerService.hasRoutePermission(sidebarItem.route)"
+        [class.selected]="isSelected(sidebarItem.route)"
+      >
+        <a [routerLink]="sidebarItem.route">
+          <i class="bi" [ngClass]="sidebarItem.icon"></i>
+          <p>{{ sidebarItem.label }}</p>
+        </a>
+      </div>
+    </ng-container>
+  </div>
 </div>

@@ -50,6 +50,34 @@
               <img [src]="d[option.imageColumn]" alt="Imagem" />
             </div>
           </ng-container>
+          <ng-container *ngIf="option.statusColumn">
+            <div class="admin-table-body-data-column">
+              <div
+                class="admin-table-body-data-column-status finished"
+                *ngIf="d[option.statusColumn] === 'finished'"
+              >
+                {{ d[option.statusColumn] | orderStatus }}
+              </div>
+              <div
+                class="admin-table-body-data-column-status canceled"
+                *ngIf="d[option.statusColumn] === 'canceled'"
+              >
+                {{ d[option.statusColumn] | orderStatus }}
+              </div>
+              <div
+                class="admin-table-body-data-column-status doing"
+                *ngIf="d[option.statusColumn] === 'doing'"
+              >
+                {{ d[option.statusColumn] | orderStatus }}
+              </div>
+              <div
+                class="admin-table-body-data-column-status pending"
+                *ngIf="d[option.statusColumn] === 'pending'"
+              >
+                {{ d[option.statusColumn] | orderStatus }}
+              </div>
+            </div>
+          </ng-container>
           <ng-container *ngIf="option.moneyColumn">
             <div class="admin-table-body-data-column">
               {{ d[option.moneyColumn] | currency }}

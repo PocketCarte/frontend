@@ -1,5 +1,5 @@
-import { Component, Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
 
 export interface AdminModalData {
   title: string;
@@ -9,20 +9,20 @@ export interface AdminModalData {
 }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AdminModalService {
   public showingSubject = new BehaviorSubject<boolean>(false);
   public componentSubject = new BehaviorSubject<any>(null);
   public dataSubject = new BehaviorSubject<any>(null);
-  public titleSubject = new BehaviorSubject<string>('');
-  public sizeSubject = new BehaviorSubject<string>('');
+  public titleSubject = new BehaviorSubject<string>("");
+  public sizeSubject = new BehaviorSubject<string>("");
 
   public open(modelData: AdminModalData): void {
     this.showingSubject.next(true);
     this.componentSubject.next(modelData.component);
     this.titleSubject.next(modelData.title);
-    this.sizeSubject.next(modelData.size ?? 'normal');
+    this.sizeSubject.next(modelData.size ?? "normal");
     this.dataSubject.next(modelData.data);
   }
 
@@ -31,8 +31,8 @@ export class AdminModalService {
     setTimeout(() => {
       this.componentSubject.next(null);
       this.dataSubject.next(null);
-      this.titleSubject.next('');
-      this.sizeSubject.next('');
+      this.titleSubject.next("");
+      this.sizeSubject.next("");
     }, 300);
   }
 

@@ -31,6 +31,10 @@ export class AdminOrdersListComponent implements OnInit, OnDestroy {
       column: "product_quantity",
     },
     {
+      label: "Status",
+      statusColumn: "status",
+    },
+    {
       label: "Criado em",
       dateColumn: "created_at",
     },

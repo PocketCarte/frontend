@@ -2,16 +2,22 @@
   <form class="admin-tables-edit-form" (ngSubmit)="handleSaveTable()">
     <div class="admin-tables-edit-form-body">
       <app-input label="Nome:" [control]="name"></app-input>
-      <app-select
-        label="Status:"
-        placeholder="Selecione"
-        [items]="statusItems"
-        [control]="status"
-      ></app-select>
       <div class="admin-tables-edit-form-body-qr_code">
         <img [src]="table.qr_code" alt="Qr code" />
       </div>
     </div>
     <app-button type="submit">Salvar</app-button>
   </form>
+  <div class="admin-tables-edit-orders">
+    <div class="admin-tables-edit-orders-list">
+      <p>2x Hamburguer - Pendente - R$ 70,00</p>
+      <p class="canceled">2x Hamburguer - Cancelado - R$ 70,00</p>
+      <p>2x Hamburguer - Pendente - R$ 70,00</p>
+    </div>
+    <div class="admin-tables-edit-orders-total">Total: R$ 100,00</div>
+    <div class="admin-tables-edit-orders-actions">
+      <app-button>Finalizar Mesa</app-button>
+      <app-button>Cancelar Mesa</app-button>
+    </div>
+  </div>
 </div>

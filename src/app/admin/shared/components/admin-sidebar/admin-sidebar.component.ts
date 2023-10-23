@@ -1,8 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { AdminAuthorizerService } from "../../services/admin-authorizer.service";
 import { AdminUserService } from "../../services/admin-user.service";
 import { AdminUser } from "../../types/admin-user";
+import { AdminSidebarService } from "../../services/admin-sidebar.service";
 
 export interface SidebarItem {
   route: string;
@@ -16,6 +17,9 @@ export interface SidebarItem {
   styleUrls: ["./admin-sidebar.component.scss"],
 })
 export class AdminSidebarComponent implements OnInit {
+  @ViewChild("sidebar") sidebar!: ElementRef;
+
+  public status = false;
   public user!: AdminUser;
   public sidebarItems: SidebarItem[] = [
     {
@@ -53,12 +57,16 @@ export class AdminSidebarComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public adminAuthorizerService: AdminAuthorizerService,
+    public adminSidebarService: AdminSidebarService,
     public adminUserService: AdminUserService,
   ) {
     this.adminUserService.loadUser();
   }
 
   public async ngOnInit(): Promise<void> {
+    this.adminSidebarService.status$.subscribe((result) => {
+      this.status = result;
+    });
     this.user = await this.adminUserService.loadUser();
   }
 

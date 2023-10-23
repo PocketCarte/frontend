@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-admin-body',
-  templateUrl: './admin-body.component.html',
-  styleUrls: ['./admin-body.component.scss']
+  selector: "app-admin-body",
+  templateUrl: "./admin-body.component.html",
+  styleUrls: ["./admin-body.component.scss"],
 })
-export class AdminBodyComponent {
-
-}
+export class AdminBodyComponent {}

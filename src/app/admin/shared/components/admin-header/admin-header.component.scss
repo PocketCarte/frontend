@@ -6,6 +6,20 @@
   justify-content: space-between;
   align-items: center;
 
+  &-sidebar{
+    display: none;
+    align-items: center;
+    height: 100%;
+    color: white;
+    font-size: 36px;
+    padding: 0px 8px;
+    position: relative;
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+
   &-logo {
     img {
       width: 54px;

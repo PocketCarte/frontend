@@ -15,10 +15,6 @@ import { AdminOrdersEditComponent } from "../admin-orders-edit/admin-orders-edit
 export class AdminOrdersListComponent implements OnInit, OnDestroy {
   public tableOptions = [
     {
-      label: "ID",
-      column: "id",
-    },
-    {
       label: "Mesa",
       column: "table_name",
     },

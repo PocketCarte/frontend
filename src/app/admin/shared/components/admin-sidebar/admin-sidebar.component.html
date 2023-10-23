@@ -1,4 +1,4 @@
-<div class="app-admin-sidebar">
+<div class="app-admin-sidebar" [class.showing]="status" #sidebar>
   <div class="app-admin-sidebar-container">
     <ng-container *ngFor="let sidebarItem of sidebarItems">
       <div
@@ -6,7 +6,10 @@
         *ngIf="adminAuthorizerService.hasRoutePermission(sidebarItem.route)"
         [class.selected]="isSelected(sidebarItem.route)"
       >
-        <a [routerLink]="sidebarItem.route">
+        <a
+          [routerLink]="sidebarItem.route"
+          (click)="adminSidebarService.status = false"
+        >
           <i class="bi" [ngClass]="sidebarItem.icon"></i>
           <p>{{ sidebarItem.label }}</p>
         </a>
@@ -14,3 +17,8 @@
     </ng-container>
   </div>
 </div>
+<div
+  class="app-admin-sidebar-hider"
+  [class.showing]="status"
+  (click)="adminSidebarService.status = false"
+></div>

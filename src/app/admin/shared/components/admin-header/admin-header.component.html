@@ -1,4 +1,7 @@
 <div class="app-admin-header" #header>
+  <div class="app-admin-header-sidebar">
+    <i class="bi bi-list" (click)="toggleSidebar()"></i>
+  </div>
   <div class="app-admin-header-logo">
     <img src="../../../../assets/images/logo-white.png" alt="" />
   </div>
@@ -9,7 +12,10 @@
         <i class="bi bi-person-circle"></i>
         <span>Minha conta</span>
       </div>
-      <div class="app-admin-header-user-dropdown-field" (click)="adminLoginService.logout()">
+      <div
+        class="app-admin-header-user-dropdown-field"
+        (click)="adminLoginService.logout()"
+      >
         <i class="bi bi-box-arrow-right"></i>
         <span>Sair</span>
       </div>

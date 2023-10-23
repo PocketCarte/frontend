@@ -3,4 +3,5 @@ export interface AdminTable {
   name: string;
   qr_code: string;
   status: string;
+  orders?: any;
 }

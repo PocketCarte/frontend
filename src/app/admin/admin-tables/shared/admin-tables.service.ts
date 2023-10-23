@@ -58,6 +58,22 @@ export class AdminTablesService {
     await this.getTables();
   }
 
+  public async finishTable(id: string): Promise<void> {
+    const url = `${environment.apiUrl}/tables/${id}/finish`;
+
+    await firstValueFrom(this.httpClient.post(url, {}));
+
+    await this.getTables();
+  }
+
+  public async cancelTable(id: string): Promise<void> {
+    const url = `${environment.apiUrl}/tables/${id}/finish`;
+
+    await firstValueFrom(this.httpClient.post(url, { cancel: true }));
+
+    await this.getTables();
+  }
+
   public get tables() {
     return this.tablesSubject.value;
   }

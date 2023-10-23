@@ -77,6 +77,36 @@ export class AdminTablesEditComponent implements OnInit {
     }
   }
 
+  public handleFinishTable(): void {
+    this.adminTablesService
+      .finishTable(this.adminModalService.data.tableId)
+      .then(() => {
+        alert("Mesa finalizada com sucesso");
+        this.adminModalService.close();
+      })
+      .catch(() => {
+        alert("Ocorreu um erro ao finalizar a mesa");
+      })
+      .finally(() => {
+        this.loading = false;
+      });
+  }
+
+  public handleCancelTable(): void {
+    this.adminTablesService
+      .cancelTable(this.adminModalService.data.tableId)
+      .then(() => {
+        alert("Mesa cancelada com sucesso");
+        this.adminModalService.close();
+      })
+      .catch(() => {
+        alert("Ocorreu um erro ao cancelar a mesa");
+      })
+      .finally(() => {
+        this.loading = false;
+      });
+  }
+
   public get name() {
     return this.form.get("name") as FormControl;
   }

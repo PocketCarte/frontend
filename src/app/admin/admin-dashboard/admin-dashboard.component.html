@@ -19,7 +19,9 @@
         <i class="bi bi-cash-coin"></i>
         <span>Patrimônio</span>
       </div>
-      <div class="admin-dashboard-cards-card-number">R$ 1000,00</div>
+      <div class="admin-dashboard-cards-card-number">
+        {{ data.patrimony | currency }}
+      </div>
     </div>
     <div
       class="admin-dashboard-cards-card"

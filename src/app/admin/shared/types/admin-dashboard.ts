@@ -5,4 +5,5 @@ export interface AdminDashboard {
   table_requests?: number;
   categories?: number;
   orders?: number;
+  patrimony?: number;
 }

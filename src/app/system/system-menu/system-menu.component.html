@@ -10,7 +10,12 @@
     </div>
     <div class="system-menu-container-category">
       <div class="system-menu-container-category-list">
-        <div (click)="systemService.changeCurrentCategory(category.id)" *ngFor="let category of categories" class="system-menu-container-category-list-item">
+        <div
+          (click)="systemService.changeCurrentCategory(category.id)"
+          *ngFor="let category of categories" 
+          class="system-menu-container-category-list-item"
+          [ngClass]="currentCategory === category.id ? 'selected' : ''"
+        >
           {{ category.name }}
         </div>
       </div>

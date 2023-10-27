@@ -11,6 +11,7 @@ export class SystemMenuComponent implements OnInit, OnDestroy{
 
   public categories: any[] = [];
   public products: any[] = [];
+  public currentCategory: string = '';
 
   private subscriptions: Subscription = new Subscription();
 
@@ -24,6 +25,7 @@ export class SystemMenuComponent implements OnInit, OnDestroy{
     this.subscriptions.add(
       this.systemService.currentCategory.subscribe((result) => {
         if(result){
+          this.currentCategory = result;
           this.systemService.getProducts(result).then(result => {
             this.products = result;
           })

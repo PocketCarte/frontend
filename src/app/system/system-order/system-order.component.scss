@@ -39,6 +39,14 @@
         display: flex;
         justify-content: space-between;
 
+        &.pendent {
+          color: rgb(83, 81, 81);
+        }
+
+        &.canceled {
+          text-decoration: line-through;
+        }
+
         div {
           display: flex;
           justify-content: flex-start;

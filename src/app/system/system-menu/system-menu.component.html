@@ -2,17 +2,18 @@
   <div class="system-menu-container">
     <div class="system-menu-container-destaques">
       <div class="system-menu-container-destaques-imagem">
-
+        <img
+          src="https://img.freepik.com/fotos-premium/hamburguer-caseiro-delicioso-lanche-de-fast-food-com-vegetais-de-carne-de-pao_124507-10891.jpg"
+          alt=""
+        />
       </div>
-      <div class="system-menu-container-destaques-circles">
-
-      </div>
+      <div class="system-menu-container-destaques-circles"></div>
     </div>
     <div class="system-menu-container-category">
       <div class="system-menu-container-category-list">
         <div
           (click)="systemService.changeCurrentCategory(category.id)"
-          *ngFor="let category of categories" 
+          *ngFor="let category of categories"
           class="system-menu-container-category-list-item"
           [ngClass]="currentCategory === category.id ? 'selected' : ''"
         >
@@ -20,20 +21,30 @@
         </div>
       </div>
     </div>
-    <div class="system-menu-container-lista">
-      <div *ngFor="let product of products" class="system-menu-container-lista-item">
-        <div class="system-menu-container-lista-item-image">
-          <img [src]="product.image" alt="" width="100">
+    <div class="system-menu-container-product-list">
+      <div
+        *ngFor="let product of products"
+        class="system-menu-container-product-list-item"
+      >
+        <div class="system-menu-container-product-list-item-image">
+          <img [src]="product.image" alt="" width="100" />
         </div>
-        <div class="system-menu-container-lista-item-description">
-          <div class="system-menu-container-lista-item-description-title">
+        <div class="system-menu-container-product-list-item-description">
+          <div
+            class="system-menu-container-product-list-item-description-title"
+          >
             {{ product.name }}
           </div>
-          <div class="system-menu-container-lista-item-description-price">
+          <div
+            class="system-menu-container-product-list-item-description-price"
+          >
             R$ {{ product.price }}
           </div>
-          <div class="system-menu-container-lista-item-description-igredients">
-            Pão com gergelim, 2 hambúrgueres, tomate, alface e fatias de cheddar.
+          <div
+            class="system-menu-container-product-list-item-description-igredients"
+          >
+            Pão com gergelim, 2 hambúrgueres, tomate, alface e fatias de
+            cheddar.
           </div>
         </div>
       </div>

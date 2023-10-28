@@ -15,10 +15,6 @@ import { AdminProductsEditComponent } from "../admin-products-edit/admin-product
 export class AdminProductsListComponent implements OnInit, OnDestroy {
   public tableOptions = [
     {
-      label: "ID",
-      column: "id",
-    },
-    {
       label: "Produto",
       imageColumn: "image",
     },

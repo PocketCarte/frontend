@@ -1,38 +1,41 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AdminCategoriesService } from '../shared/admin-categories.service';
-import { AdminModalService } from '../../shared/services/admin-modal.service';
+import { Component } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { AdminCategoriesService } from "../shared/admin-categories.service";
+import { AdminModalService } from "../../shared/services/admin-modal.service";
 
 @Component({
-  selector: 'app-admin-categories-add',
-  templateUrl: './admin-categories-add.component.html',
-  styleUrls: ['./admin-categories-add.component.scss']
+  selector: "app-admin-categories-add",
+  templateUrl: "./admin-categories-add.component.html",
+  styleUrls: ["./admin-categories-add.component.scss"],
 })
 export class AdminCategoriesAddComponent {
   private form: FormGroup = this.fb.group({
-    name: new FormControl('', [Validators.required]),
+    name: new FormControl("", [Validators.required]),
   });
-  private loading: boolean = false;
+  private loading = false;
 
   constructor(
     private fb: FormBuilder,
     private adminCategoriesService: AdminCategoriesService,
-    private adminModalService: AdminModalService
+    private adminModalService: AdminModalService,
   ) {}
 
   public handleAddCategory(): void {
-    if(this.form.valid && !this.loading){
+    if (this.form.valid && !this.loading) {
       this.loading = true;
       this.adminCategoriesService
-        .addCategory(
-          this.name.value
-        )
+        .addCategory(this.name.value)
         .then(() => {
-          alert('Categoria adicionada com sucesso');
+          alert("Categoria adicionada com sucesso");
           this.adminModalService.close();
         })
         .catch(() => {
-          alert('Ocorreu um erro ao adicionar a categoria');
+          alert("Ocorreu um erro ao adicionar a categoria");
         })
         .finally(() => {
           this.loading = false;
@@ -41,6 +44,6 @@ export class AdminCategoriesAddComponent {
   }
 
   public get name() {
-    return this.form.get('name') as FormControl;
+    return this.form.get("name") as FormControl;
   }
 }

@@ -1,16 +1,28 @@
 <div class="login-screen">
   <form class="login-container" (ngSubmit)="onLogin()">
-    <img src="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png" alt="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png">
+    <img
+      src="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png"
+      alt="https://cbissn.ibict.br/images/phocagallery/galeria2/thumbs/phoca_thumb_l_image03_grd.png"
+    />
     <h1>Login</h1>
-    <div class="login-input" > 
-      <app-input label="Email:" [control]="email" type="email" placeholder="exemplo@gmail.com"></app-input>
+    <div class="login-input">
+      <app-input
+        label="Email:"
+        [control]="email"
+        type="email"
+        placeholder="exemplo@gmail.com"
+      ></app-input>
     </div>
-    <div class="login-input" > 
-      <app-input label="Senha:" [control]="password" type="password" placeholder="******"></app-input>
+    <div class="login-input">
+      <app-input
+        label="Senha:"
+        [control]="password"
+        type="password"
+        placeholder="******"
+      ></app-input>
     </div>
     <div class="btn-default">
       <app-button size="normal" type="submit">Entrar</app-button>
     </div>
   </form>
 </div>
-

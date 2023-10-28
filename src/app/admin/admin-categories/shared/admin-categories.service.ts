@@ -1,23 +1,24 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, firstValueFrom } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { AdminCategory } from '../../shared/types/admin-category';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, firstValueFrom } from "rxjs";
+import { environment } from "src/environments/environment";
+import { AdminCategory } from "../../shared/types/admin-category";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AdminCategoriesService {
-
   private categoriesSubject = new BehaviorSubject<AdminCategory[]>([]);
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public async getCategories(): Promise<AdminCategory[]> {
     const url = `${environment.apiUrl}/categories`;
 
-    const tables = await firstValueFrom(this.httpClient.get<AdminCategory[]>(url));
-    
+    const tables = await firstValueFrom(
+      this.httpClient.get<AdminCategory[]>(url),
+    );
+
     this.categoriesSubject.next(tables);
 
     return tables;

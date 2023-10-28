@@ -78,9 +78,30 @@
               </div>
             </div>
           </ng-container>
+          <ng-container *ngIf="option.tableStatusColumn">
+            <div class="admin-table-body-data-column">
+              <div
+                class="admin-table-body-data-column-status finished"
+                *ngIf="+d[option.tableStatusColumn] === 0"
+              >
+                {{ d[option.tableStatusColumn] | tableStatus }}
+              </div>
+              <div
+                class="admin-table-body-data-column-status canceled"
+                *ngIf="+d[option.tableStatusColumn] === 1"
+              >
+                {{ d[option.tableStatusColumn] | tableStatus }}
+              </div>
+            </div>
+          </ng-container>
           <ng-container *ngIf="option.moneyColumn">
             <div class="admin-table-body-data-column">
               {{ d[option.moneyColumn] | currency }}
+            </div>
+          </ng-container>
+          <ng-container *ngIf="option.userPermissionColumn">
+            <div class="admin-table-body-data-column">
+              {{ d[option.userPermissionColumn] | userPermission }}
             </div>
           </ng-container>
           <ng-container *ngIf="option.dateColumn">

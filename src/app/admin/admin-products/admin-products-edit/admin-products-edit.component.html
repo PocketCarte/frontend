@@ -1,11 +1,20 @@
 <div class="admin-products-edit">
-    <form class="admin-products-edit-form" (ngSubmit)="handleSaveCategory()">
-        <div class="admin-products-edit-form-body">
-            <app-input label="Nome:" [control]="name"></app-input>
-            <app-input label="Preço:" type="number" [control]="price"></app-input>
-            <app-select label="Categoria:" [items]="categoriesOptions" [control]="category_id"></app-select>
-            <app-upload-image [initialValue]="initialImage" [control]="image" label="Imagem:"></app-upload-image>
-        </div>
-        <app-button type="submit">Salvar</app-button>
-    </form>
+  <form class="admin-products-edit-form" (ngSubmit)="handleSaveCategory()">
+    <div class="admin-products-edit-form-body">
+      <app-upload-image
+        [initialValue]="initialImage"
+        [align]="'center'"
+        [size]="'lg'"
+        [control]="image"
+      ></app-upload-image>
+      <app-input label="Nome:" [control]="name"></app-input>
+      <app-input label="Preço:" type="number" [control]="price"></app-input>
+      <app-select
+        label="Categoria:"
+        [items]="categoriesOptions"
+        [control]="category_id"
+      ></app-select>
+    </div>
+    <app-button type="submit">Salvar</app-button>
+  </form>
 </div>

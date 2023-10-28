@@ -1,13 +1,23 @@
-<div class="app-upload-image"> 
-    <label *ngIf="label">{{ label }}</label>
-    <div class="app-upload-image-container" (click)="input.click()">
-        <div class="app-upload-image-container-img" *ngIf="imagePreview">
-            <img [src]="imagePreview" alt="Imagem">
-            <div class="app-upload-image-container-img-effect">
-                <i class="bi bi-cloud-arrow-up-fill"></i>
-            </div>
-        </div>
-        <i *ngIf="!imagePreview" class="bi bi-cloud-arrow-up-fill"></i>
-        <input #input type="file" accept="image/*" hidden (change)="onChange($event)">
+<div class="app-upload-image" [ngClass]="align">
+  <label *ngIf="label">{{ label }}</label>
+  <div
+    class="app-upload-image-container"
+    [ngClass]="size"
+    (click)="input.click()"
+  >
+    <div class="app-upload-image-container-img" *ngIf="imagePreview">
+      <img [src]="imagePreview" alt="Imagem" />
+      <div class="app-upload-image-container-img-effect">
+        <i class="bi bi-cloud-arrow-up-fill"></i>
+      </div>
     </div>
+    <i *ngIf="!imagePreview" class="bi bi-cloud-arrow-up-fill"></i>
+    <input
+      #input
+      type="file"
+      accept="image/*"
+      hidden
+      (change)="onChange($event)"
+    />
+  </div>
 </div>

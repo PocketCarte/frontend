@@ -20,7 +20,7 @@ export class AdminTablesListComponent implements OnInit, OnDestroy {
     },
     {
       label: "Status",
-      column: "status",
+      tableStatusColumn: "status",
     },
     {
       deleteButton: true,

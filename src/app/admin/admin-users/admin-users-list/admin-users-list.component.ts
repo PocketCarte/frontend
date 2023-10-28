@@ -24,7 +24,7 @@ export class AdminUsersListComponent implements OnInit, OnDestroy {
     },
     {
       label: "Permissão",
-      column: "permission",
+      userPermissionColumn: "permission",
     },
     {
       deleteButton: true,

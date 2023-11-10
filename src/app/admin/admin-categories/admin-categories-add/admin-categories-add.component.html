@@ -3,6 +3,8 @@
     <div class="admin-categories-add-form-body">
       <app-input label="Nome:" [control]="name"></app-input>
     </div>
-    <app-button type="submit">Adicionar</app-button>
+    <app-button type="submit" [disabled]="form.invalid || loading"
+      >Adicionar</app-button
+    >
   </form>
 </div>

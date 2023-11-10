@@ -14,10 +14,10 @@ import { AdminModalService } from "../../shared/services/admin-modal.service";
   styleUrls: ["./admin-categories-add.component.scss"],
 })
 export class AdminCategoriesAddComponent {
-  private form: FormGroup = this.fb.group({
+  public form: FormGroup = this.fb.group({
     name: new FormControl("", [Validators.required]),
   });
-  private loading = false;
+  public loading = false;
 
   constructor(
     private fb: FormBuilder,

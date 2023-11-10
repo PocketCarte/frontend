@@ -14,6 +14,8 @@
         [control]="category_id"
       ></app-select>
     </div>
-    <app-button type="submit">Adicionar</app-button>
+    <app-button type="submit" [disabled]="loading || !form.valid"
+      >Adicionar</app-button
+    >
   </form>
 </div>

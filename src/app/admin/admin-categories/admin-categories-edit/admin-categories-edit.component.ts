@@ -1,23 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AdminCategoriesService } from '../shared/admin-categories.service';
-import { AdminModalService } from '../../shared/services/admin-modal.service';
+import { Component, OnInit } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from "@angular/forms";
+import { AdminCategoriesService } from "../shared/admin-categories.service";
+import { AdminModalService } from "../../shared/services/admin-modal.service";
 
 @Component({
-  selector: 'app-admin-categories-edit',
-  templateUrl: './admin-categories-edit.component.html',
-  styleUrls: ['./admin-categories-edit.component.scss']
+  selector: "app-admin-categories-edit",
+  templateUrl: "./admin-categories-edit.component.html",
+  styleUrls: ["./admin-categories-edit.component.scss"],
 })
 export class AdminCategoriesEditComponent implements OnInit {
-  private form: FormGroup = this.fb.group({
-    name: new FormControl('', [Validators.required]),
+  public form: FormGroup = this.fb.group({
+    name: new FormControl("", [Validators.required]),
   });
-  private loading: boolean = false;
+  public loading = false;
 
   constructor(
     private fb: FormBuilder,
     private adminCategoriesService: AdminCategoriesService,
-    private adminModalService: AdminModalService
+    private adminModalService: AdminModalService,
   ) {}
 
   public ngOnInit(): void {
@@ -25,8 +30,8 @@ export class AdminCategoriesEditComponent implements OnInit {
       .getCategory(this.adminModalService.data.categoryId)
       .then((result) => {
         this.form.patchValue({
-          name: result.name
-        })
+          name: result.name,
+        });
       })
       .catch(() => {
         this.adminModalService.close();
@@ -34,19 +39,16 @@ export class AdminCategoriesEditComponent implements OnInit {
   }
 
   public handleSaveCategory(): void {
-    if(this.form.valid && !this.loading){
+    if (this.form.valid && !this.loading) {
       this.loading = true;
       this.adminCategoriesService
-        .updateCategory(
-          this.adminModalService.data.categoryId,
-          this.name.value
-        )
+        .updateCategory(this.adminModalService.data.categoryId, this.name.value)
         .then(() => {
-          alert('Categoria salva com sucesso');
+          alert("Categoria salva com sucesso");
           this.adminModalService.close();
         })
         .catch(() => {
-          alert('Ocorreu um erro ao salvar a categoria');
+          alert("Ocorreu um erro ao salvar a categoria");
         })
         .finally(() => {
           this.loading = false;
@@ -55,6 +57,6 @@ export class AdminCategoriesEditComponent implements OnInit {
   }
 
   public get name() {
-    return this.form.get('name') as FormControl;
+    return this.form.get("name") as FormControl;
   }
 }

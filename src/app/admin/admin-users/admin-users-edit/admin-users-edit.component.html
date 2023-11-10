@@ -1,10 +1,17 @@
 <div class="admin-users-edit">
-    <form class="admin-users-edit-form" (ngSubmit)="handleSaveUser()">
-        <div class="admin-users-edit-form-body">
-            <app-input label="Nome:" [control]="name"></app-input>
-            <app-select label="Permissão:" placeholder="Selecione" [items]="permissionsItems" [control]="permission"></app-select>
-            <app-input label="Email:" type="email" [control]="email"></app-input>
-        </div>
-        <app-button type="submit">Salvar</app-button>
-    </form>
+  <form class="admin-users-edit-form" (ngSubmit)="handleSaveUser()">
+    <div class="admin-users-edit-form-body">
+      <app-input label="Nome:" [control]="name"></app-input>
+      <app-select
+        label="Permissão:"
+        placeholder="Selecione"
+        [items]="permissionsItems"
+        [control]="permission"
+      ></app-select>
+      <app-input label="Email:" type="email" [control]="email"></app-input>
+    </div>
+    <app-button type="submit" [disabled]="loading || !form.valid"
+      >Salvar</app-button
+    >
+  </form>
 </div>

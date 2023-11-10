@@ -27,12 +27,11 @@ export class AdminTablesEditComponent implements OnInit {
     },
   ];
   public table!: AdminTable;
-
-  private form: FormGroup = this.fb.group({
+  public form: FormGroup = this.fb.group({
     name: new FormControl("", [Validators.required]),
     status: new FormControl("", [Validators.required]),
   });
-  private loading = false;
+  public loading = false;
 
   constructor(
     private fb: FormBuilder,

@@ -6,7 +6,9 @@
         <img [src]="table.qr_code" alt="Qr code" />
       </div>
     </div>
-    <app-button type="submit">Salvar</app-button>
+    <app-button type="submit" [disabled]="loading || !form.valid"
+      >Salvar</app-button
+    >
   </form>
   <div class="admin-tables-edit-orders" *ngIf="table.orders.list.length > 0">
     <div class="admin-tables-edit-orders-list">

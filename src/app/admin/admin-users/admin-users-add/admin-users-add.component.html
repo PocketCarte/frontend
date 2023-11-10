@@ -1,11 +1,22 @@
 <div class="admin-users-add">
-    <form class="admin-users-add-form" (ngSubmit)="handleAddUser()">
-        <div class="admin-users-add-form-body">
-            <app-input label="Nome:" [control]="name"></app-input>
-            <app-select label="Permissão:" placeholder="Selecione" [items]="permissionsItems" [control]="permission"></app-select>
-            <app-input label="Email:" type="email" [control]="email"></app-input>
-            <app-input label="Password:" type="password" [control]="password"></app-input>
-        </div>
-        <app-button type="submit">Adicionar</app-button>
-    </form>
+  <form class="admin-users-add-form" (ngSubmit)="handleAddUser()">
+    <div class="admin-users-add-form-body">
+      <app-input label="Nome:" [control]="name"></app-input>
+      <app-select
+        label="Permissão:"
+        placeholder="Selecione"
+        [items]="permissionsItems"
+        [control]="permission"
+      ></app-select>
+      <app-input label="Email:" type="email" [control]="email"></app-input>
+      <app-input
+        label="Password:"
+        type="password"
+        [control]="password"
+      ></app-input>
+    </div>
+    <app-button type="submit" [disabled]="loading || !form.valid"
+      >Adicionar</app-button
+    >
+  </form>
 </div>

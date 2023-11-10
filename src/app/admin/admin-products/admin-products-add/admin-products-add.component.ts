@@ -19,14 +19,14 @@ import { Subscription } from "rxjs";
 })
 export class AdminProductsAddComponent implements OnInit, OnDestroy {
   public categoriesOptions: SelectItem[] = [];
-
-  private form: FormGroup = this.fb.group({
+  public form: FormGroup = this.fb.group({
     name: new FormControl("", [Validators.required]),
     price: new FormControl("", [Validators.required]),
     category_id: new FormControl("", [Validators.required]),
     image: new FormControl(null, [Validators.required]),
   });
-  private loading = false;
+  public loading = false;
+
   private subscriptions: Subscription = new Subscription();
 
   constructor(

@@ -1,8 +1,10 @@
 <div class="admin-categories-edit">
-    <form class="admin-categories-edit-form" (ngSubmit)="handleSaveCategory()">
-        <div class="admin-categories-edit-form-body">
-            <app-input label="Nome:" [control]="name"></app-input>
-        </div>
-        <app-button type="submit">Salvar</app-button>
-    </form>
+  <form class="admin-categories-edit-form" (ngSubmit)="handleSaveCategory()">
+    <div class="admin-categories-edit-form-body">
+      <app-input label="Nome:" [control]="name"></app-input>
+    </div>
+    <app-button type="submit" [disabled]="form.invalid || loading"
+      >Salvar</app-button
+    >
+  </form>
 </div>

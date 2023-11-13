@@ -1,7 +1,19 @@
 <app-admin-body>
-    <div class="admin-tables-list-header">
-        <p>Mesas</p>
-        <app-button size="normal" (clicked)="handleAddTable()">Adicionar uma mesa</app-button>
-    </div>
-    <app-admin-table [options]="tableOptions" [data]="adminTablesService.tables$" (deleteClick)="handleDeleteTable($event)" (editClick)="handleEditTable($event)"></app-admin-table>
+  <div class="admin-tables-list-header" *ngIf="this.adminUserService.user">
+    <p>Mesas</p>
+    <app-button
+      size="normal"
+      (clicked)="handleAddTable()"
+      *ngIf="
+        this.adminUserService.user.permission < adminPermissions.Garcom ?? false
+      "
+      >Adicionar uma mesa</app-button
+    >
+  </div>
+  <app-admin-table
+    [options]="tableOptions"
+    [data]="adminTablesService.tables$"
+    (deleteClick)="handleDeleteTable($event)"
+    (editClick)="handleEditTable($event)"
+  ></app-admin-table>
 </app-admin-body>

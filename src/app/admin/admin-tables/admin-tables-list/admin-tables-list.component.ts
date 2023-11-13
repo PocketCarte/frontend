@@ -6,6 +6,8 @@ import { AdminTablesAddComponent } from "../admin-tables-add/admin-tables-add.co
 import { AdminTable } from "../../shared/types/admin-table";
 import { Subscription } from "rxjs";
 import { AdminTablesEditComponent } from "../admin-tables-edit/admin-tables-edit.component";
+import { AdminUserService } from "../../shared/services/admin-user.service";
+import { AdminPermissions } from "../../shared/types/admin-permissions";
 
 @Component({
   selector: "app-admin-tables-list",
@@ -28,11 +30,14 @@ export class AdminTablesListComponent implements OnInit, OnDestroy {
     },
   ];
   public data: AdminTable[] = [];
+  public adminPermissions = AdminPermissions;
+
   private subscriptions: Subscription = new Subscription();
 
   constructor(
     public adminTablesService: AdminTablesService,
     public adminSpinnerService: AdminSpinnerService,
+    public adminUserService: AdminUserService,
     private adminModalService: AdminModalService,
   ) {}
 

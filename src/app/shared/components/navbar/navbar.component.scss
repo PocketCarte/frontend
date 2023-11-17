@@ -4,19 +4,23 @@
   bottom: 0;
   left: 0;
   display: flex;
+  background-color: #c8b4b4;
+  gap: 2px;
 
   .navbar-item {
     flex: 1;
-    color: #FFF;
+    color: #000;
+    background-color: rgb(251, 251, 251);
     font-size: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #20170E;
     height: 42px;
 
     &.selected {
-      background-color: #000;
+      // background-color: #c92e2e;
+      background-color: #C70000;
+      color: #FFF;
     }
   }
 }

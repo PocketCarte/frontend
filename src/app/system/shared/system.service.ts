@@ -1,14 +1,14 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { BehaviorSubject, Observable, firstValueFrom } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment";
+import { BehaviorSubject, Observable, firstValueFrom } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class SystemService {
-
-  public currentCategorySubject: BehaviorSubject<string | undefined | null> = new BehaviorSubject<string | undefined | null>(undefined);
+  public currentCategorySubject: BehaviorSubject<string | undefined | null> =
+    new BehaviorSubject<string | undefined | null>(undefined);
 
   constructor(private httpClient: HttpClient) {
     this.initialCategory();
@@ -19,7 +19,7 @@ export class SystemService {
 
     const categories: any = await firstValueFrom(this.httpClient.get(url));
 
-    if(!this.currentCategorySubject.value){
+    if (!this.currentCategorySubject.value) {
       this.currentCategorySubject.next(categories[0].id);
     }
   }

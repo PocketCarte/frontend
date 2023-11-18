@@ -1,0 +1,21 @@
+<div class="admin-table-requests">
+  <app-admin-header></app-admin-header>
+  <div class="admin-table-requests-col">
+    <div *ngIf="data.length <= 0" class="admin-table-requests-not-found">
+      Nenhuma requisição de mesa até o momento
+    </div>
+    <div class="admin-table-requests-request" *ngFor="let request of data">
+      <div class="admin-table-requests-request-data">
+        Token: {{ request.token }}
+      </div>
+      <div class="admin-table-requests-request-actions">
+        <app-button (clicked)="approveTableRequest(request.id)">
+          Aceitar
+        </app-button>
+        <app-button (clicked)="declineTableRequest(request.id)">
+          Rejeitar
+        </app-button>
+      </div>
+    </div>
+  </div>
+</div>

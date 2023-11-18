@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { SystemInterceptorService } from '../shared/services/system-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SystemRoutingModule } from './system-routing.module';
+import { SystemNotFoundComponent } from './system-not-found/system-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SystemRoutingModule } from './system-routing.module';
     SystemOrderComponent,
     SystemTableRequestComponent,
     SystemComponent,
+    SystemNotFoundComponent,
   ],
   imports: [
     CommonModule,

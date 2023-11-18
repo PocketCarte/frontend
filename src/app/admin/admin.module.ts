@@ -31,6 +31,7 @@ import { AdminOrdersListComponent } from "./admin-orders/admin-orders-list/admin
 import { AdminOrdersAddComponent } from "./admin-orders/admin-orders-add/admin-orders-add.component";
 import { AdminOrdersEditComponent } from "./admin-orders/admin-orders-edit/admin-orders-edit.component";
 import { AdminOrdersKitchenComponent } from "./admin-orders/admin-orders-kitchen/admin-orders-kitchen.component";
+import { AdminTableRequestsComponent } from "./admin-table-requests/admin-table-requests.component";
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { AdminOrdersKitchenComponent } from "./admin-orders/admin-orders-kitchen
     AdminComponent,
     AdminSpinnerComponent,
     AdminTableComponent,
+    AdminTableRequestsComponent,
     AdminModalComponent,
     AdminUsersEditComponent,
     AdminTablesListComponent,

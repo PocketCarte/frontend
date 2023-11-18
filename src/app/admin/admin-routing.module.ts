@@ -9,6 +9,7 @@ import { AdminTablesListComponent } from "./admin-tables/admin-tables-list/admin
 import { AdminCategoriesListComponent } from "./admin-categories/admin-categories-list/admin-categories-list.component";
 import { AdminProductsListComponent } from "./admin-products/admin-products-list/admin-products-list.component";
 import { AdminOrdersListComponent } from "./admin-orders/admin-orders-list/admin-orders-list.component";
+import { AdminTableRequestsComponent } from "./admin-table-requests/admin-table-requests.component";
 
 const routes: Routes = [
   {
@@ -86,6 +87,12 @@ const routes: Routes = [
             redirectTo: "list",
           },
         ],
+      },
+      {
+        path: "table_requests",
+        canActivate: [AdminAuthGuard],
+        data: { checkRoute: "/admin/tables" },
+        component: AdminTableRequestsComponent,
       },
       {
         path: "users",

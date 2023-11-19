@@ -1,0 +1,16 @@
+<div class="system-modal" [class.showing]="showing">
+  <div class="system-modal-container" [ngClass]="size">
+    <div class="system-modal-header">
+      <div class="system-modal-header-title" *ngIf="title">{{ title }}</div>
+      <div
+        class="system-modal-header-close"
+        (click)="systemModalService.close()"
+      >
+        <i class="bi bi-x-lg"></i>
+      </div>
+    </div>
+    <div class="system-modal-body" *ngIf="component">
+      <ng-container *ngComponentOutlet="component"></ng-container>
+    </div>
+  </div>
+</div>

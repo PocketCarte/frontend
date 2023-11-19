@@ -38,6 +38,12 @@
       flex-direction: column;
     }
 
+    &-data{
+      width: 70%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     &-actions{
       display: flex;
       align-items: center;

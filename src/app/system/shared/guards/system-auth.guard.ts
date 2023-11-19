@@ -1,5 +1,5 @@
 import { inject } from "@angular/core";
-import { ActivatedRoute, CanActivateFn, Router } from "@angular/router";
+import { CanActivateFn, Router } from "@angular/router";
 import { SystemAuthService } from "../services/system-auth.service";
 
 export const SystemAuthGuard: CanActivateFn = async (
@@ -8,8 +8,6 @@ export const SystemAuthGuard: CanActivateFn = async (
 ): Promise<boolean> => {
   const systemAuthService = inject(SystemAuthService) as SystemAuthService;
   const router = inject(Router) as Router;
-
-  console.log(route.data["checkRoute"]);
 
   if (route.queryParamMap.get("table_id") && !localStorage.getItem("token")) {
     try {
@@ -33,18 +31,24 @@ export const SystemAuthGuard: CanActivateFn = async (
     return false;
   }
 
-  try {
-    await systemAuthService.checkToken(localStorage.getItem("token") ?? "");
-    if (route.data["checkRoute"] === "/not-found") {
-      router.navigate(["/menu"]);
-    }
-    return true;
-  } catch (e: any) {
-    if (e.error.msg !== "Token não está ativo") {
-      localStorage.removeItem("token");
+  const token = localStorage.getItem("token") ?? "";
+
+  if (route.data["checkRoute"] !== "/not-found") {
+    if (token) {
+      try {
+        await systemAuthService.checkToken(localStorage.getItem("token") ?? "");
+        return true;
+      } catch (e: any) {
+        if (e.error.msg !== "Token não está ativo") {
+          localStorage.removeItem("token");
+          router.navigate(["/not-found"]);
+          return false;
+        }
+      }
+    } else {
+      router.navigate(["/not-found"]);
       return false;
     }
-    router.navigate(["/not-found"]);
   }
 
   return true;

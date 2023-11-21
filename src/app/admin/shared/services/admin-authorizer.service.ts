@@ -8,7 +8,7 @@ import { AdminUserService } from "./admin-user.service";
 export class AdminAuthorizerService {
   private authorizer: any = {
     "/admin/dashboard": AdminPermissions.Cozinha,
-    "/admin/orders": AdminPermissions.Garcom,
+    "/admin/orders": AdminPermissions.Cozinha,
     "/admin/categories": AdminPermissions.Gerente,
     "/admin/products": AdminPermissions.Gerente,
     "/admin/tables": AdminPermissions.Garcom,

@@ -10,6 +10,7 @@ import { AdminCategoriesListComponent } from "./admin-categories/admin-categorie
 import { AdminProductsListComponent } from "./admin-products/admin-products-list/admin-products-list.component";
 import { AdminOrdersListComponent } from "./admin-orders/admin-orders-list/admin-orders-list.component";
 import { AdminTableRequestsComponent } from "./admin-table-requests/admin-table-requests.component";
+import { AdminOrdersKitchenComponent } from "./admin-orders/admin-orders-kitchen/admin-orders-kitchen.component";
 
 const routes: Routes = [
   {
@@ -36,6 +37,11 @@ const routes: Routes = [
             path: "list",
             data: { checkRoute: "/admin/orders" },
             component: AdminOrdersListComponent,
+          },
+          {
+            path: "kitchen",
+            data: { checkRoute: "/admin/orders" },
+            component: AdminOrdersKitchenComponent,
           },
           {
             path: "**",

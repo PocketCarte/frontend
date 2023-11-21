@@ -6,6 +6,7 @@ import { AdminModalService } from "../../shared/services/admin-modal.service";
 import { AdminOrdersAddComponent } from "../admin-orders-add/admin-orders-add.component";
 import { AdminOrdersService } from "../shared/admin-orders.service";
 import { AdminOrdersEditComponent } from "../admin-orders-edit/admin-orders-edit.component";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-admin-orders-list",
@@ -47,6 +48,7 @@ export class AdminOrdersListComponent implements OnInit, OnDestroy {
     public adminOrdersService: AdminOrdersService,
     public adminSpinnerService: AdminSpinnerService,
     private adminModalService: AdminModalService,
+    private router: Router,
   ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -62,6 +64,14 @@ export class AdminOrdersListComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
+  }
+
+  public handleOpenKitchenOrdersMenu(): void {
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(["/admin/orders/kitchen"]),
+    );
+
+    window.open(url, "_blank");
   }
 
   public handleAddOrder(): void {

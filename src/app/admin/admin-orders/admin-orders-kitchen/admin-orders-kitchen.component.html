@@ -1,1 +1,69 @@
-<p>admin-orders-kitchen works!</p>
+<div class="admin-orders-kitchen">
+  <app-admin-header></app-admin-header>
+  <div class="admin-orders-kitchen-row">
+    <div class="admin-orders-kitchen-type">
+      <div class="admin-orders-kitchen-type-title pending">PENDENTE</div>
+      <div class="admin-orders-kitchen-type-list">
+        <div
+          class="admin-orders-kitchen-type-list-item"
+          *ngFor="let item of data['pending']"
+          (click)="handleEditOrder(item)"
+        >
+          <div>Mesa: {{ item.table_name }}</div>
+          <div>
+            Pedido: {{ item.product_name }} {{ item.product_quantity }}x
+          </div>
+          <div *ngIf="item.description">OBS: {{ item.description }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-orders-kitchen-type">
+      <div class="admin-orders-kitchen-type-title doing">FAZENDO</div>
+      <div class="admin-orders-kitchen-type-list">
+        <div
+          class="admin-orders-kitchen-type-list-item"
+          *ngFor="let item of data['doing']"
+          (click)="handleEditOrder(item)"
+        >
+          <div>Mesa: {{ item.table_name }}</div>
+          <div>
+            Pedido: {{ item.product_name }} {{ item.product_quantity }}x
+          </div>
+          <div *ngIf="item.description">OBS: {{ item.description }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-orders-kitchen-type">
+      <div class="admin-orders-kitchen-type-title finished">FEITO</div>
+      <div class="admin-orders-kitchen-type-list">
+        <div
+          class="admin-orders-kitchen-type-list-item"
+          *ngFor="let item of data['finished']"
+          (click)="handleEditOrder(item)"
+        >
+          <div>Mesa: {{ item.table_name }}</div>
+          <div>
+            Pedido: {{ item.product_name }} {{ item.product_quantity }}x
+          </div>
+          <div *ngIf="item.description">OBS: {{ item.description }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="admin-orders-kitchen-type">
+      <div class="admin-orders-kitchen-type-title canceled">CANCELADO</div>
+      <div class="admin-orders-kitchen-type-list">
+        <div
+          class="admin-orders-kitchen-type-list-item"
+          *ngFor="let item of data['canceled']"
+          (click)="handleEditOrder(item)"
+        >
+          <div>Mesa: {{ item.table_name }}</div>
+          <div>
+            Pedido: {{ item.product_name }} {{ item.product_quantity }}x
+          </div>
+          <div *ngIf="item.description">OBS: {{ item.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

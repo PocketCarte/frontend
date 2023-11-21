@@ -1,9 +1,14 @@
 <app-admin-body>
   <div class="admin-orders-list-header">
     <p>Pedidos</p>
-    <app-button size="normal" (clicked)="handleAddOrder()"
-      >Adicionar um pedido</app-button
-    >
+    <div class="admin-orders-list-header-actions">
+      <app-button size="normal" (clicked)="handleOpenKitchenOrdersMenu()"
+        >Menu de cozinha</app-button
+      >
+      <app-button size="normal" (clicked)="handleAddOrder()"
+        >Adicionar um pedido</app-button
+      >
+    </div>
   </div>
   <app-admin-table
     [options]="tableOptions"

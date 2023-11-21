@@ -60,9 +60,9 @@
           align-items: center;
           line-height: 1;
 
-          @media (max-width: 768px) {
-            padding: 0px 12px;
-          }
+          // @media (max-width: 768px) {
+          //   padding: 0px 12px;
+          // }
 
           &.selected {
             background-color: #C70000;

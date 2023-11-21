@@ -8,10 +8,6 @@
   <div class="app-admin-header-user">
     <i class="bi bi-person-fill" (click)="toggleUserDropdown()"></i>
     <div class="app-admin-header-user-dropdown" [class.showing]="userDropdown">
-      <div class="app-admin-header-user-dropdown-field">
-        <i class="bi bi-person-circle"></i>
-        <span>Minha conta</span>
-      </div>
       <div
         class="app-admin-header-user-dropdown-field"
         (click)="adminLoginService.logout()"

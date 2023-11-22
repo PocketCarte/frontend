@@ -1,11 +1,23 @@
 <div class="app-navbar">
-  <div class="navbar-item selected">
+  <div
+    class="navbar-item"
+    [class.selected]="isSelected('/menu')"
+    routerLink="/menu"
+  >
     <i class="bi bi-house-fill"></i>
   </div>
-  <div class="navbar-item">
+  <div
+    class="navbar-item"
+    [class.selected]="isSelected('/call_waiter')"
+    routerLink="/call_waiter"
+  >
     <i class="bi bi-bell-fill"></i>
   </div>
-  <div class="navbar-item">
+  <div
+    class="navbar-item"
+    [class.selected]="isSelected('/order')"
+    routerLink="/order"
+  >
     <i class="bi bi-receipt"></i>
   </div>
 </div>

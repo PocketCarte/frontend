@@ -3,8 +3,14 @@
     <div class="system-menu-container-destaques">
       <div class="system-menu-container-destaques-imagem">
         <img
-          src="https://img.freepik.com/fotos-premium/hamburguer-caseiro-delicioso-lanche-de-fast-food-com-vegetais-de-carne-de-pao_124507-10891.jpg"
-          alt=""
+          class="destaque-image"
+          src="../../../../../assets/images/menu/hamburger-destaque.jpg"
+          alt="Destaques do Restaurante"
+        />
+        <img
+          class="logo-menu"
+          src="../../../assets/images/logo-white.png"
+          alt="Logo Pocket Carte"
         />
       </div>
       <div class="system-menu-container-destaques-circles"></div>
@@ -26,7 +32,10 @@
         *ngFor="let product of products"
         class="system-menu-container-product-list-item"
       >
-        <div class="system-menu-container-product-list-item-image">
+        <div
+          class="system-menu-container-product-list-item-image"
+          (click)="handleOrder(product)"
+        >
           <img [src]="product.image" alt="" width="100" />
         </div>
         <div class="system-menu-container-product-list-item-description">

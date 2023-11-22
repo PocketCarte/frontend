@@ -6,6 +6,7 @@ import { SystemTableRequestComponent } from "./system-table-request/system-table
 import { SystemOrderComponent } from "./system-order/system-order.component";
 import { SystemAuthGuard } from "./shared/guards/system-auth.guard";
 import { SystemNotFoundComponent } from "./system-not-found/system-not-found.component";
+import { SystemCallWaiterComponent } from "./system-call-waiter/system-call-waiter.component";
 // this.route.snapshot.queryParamMap.get('filter')
 const routes: Routes = [
   {
@@ -29,6 +30,12 @@ const routes: Routes = [
         data: { checkRoute: "/order" },
         canActivate: [SystemAuthGuard],
         component: SystemOrderComponent,
+      },
+      {
+        path: "call_waiter",
+        data: { checkRoute: "/call_waiter" },
+        canActivate: [SystemAuthGuard],
+        component: SystemCallWaiterComponent,
       },
       {
         path: "not-found",

@@ -1,62 +1,62 @@
-<div class="system-menu">
-  <div class="system-menu-container">
-    <div class="system-menu-container-destaques">
-      <div class="system-menu-container-destaques-imagem">
-        <img
-          class="destaque-image"
-          src="../../../../../assets/images/menu/hamburger-destaque.jpg"
-          alt="Destaques do Restaurante"
-        />
-        <img
-          class="logo-menu"
-          src="../../../assets/images/logo-white.png"
-          alt="Logo Pocket Carte"
-        />
+<app-system-body>
+  <div class="system-menu">
+    <div class="system-menu-container">
+      <div class="system-menu-container-destaques">
+        <div class="system-menu-container-destaques-imagem">
+          <img
+            class="destaque-image"
+            src="../../../../../assets/images/menu/hamburger-destaque.jpg"
+            alt="Destaques do Restaurante"
+          />
+          <img
+            class="logo-menu"
+            src="../../../assets/images/logo-white.png"
+            alt="Logo Pocket Carte"
+          />
+        </div>
+        <div class="system-menu-container-destaques-circles"></div>
       </div>
-      <div class="system-menu-container-destaques-circles"></div>
-    </div>
-    <div class="system-menu-container-category">
-      <div class="system-menu-container-category-list">
-        <div
-          (click)="systemService.changeCurrentCategory(category.id)"
-          *ngFor="let category of categories"
-          class="system-menu-container-category-list-item"
-          [ngClass]="currentCategory === category.id ? 'selected' : ''"
-        >
-          {{ category.name }}
+      <div class="system-menu-container-category">
+        <div class="system-menu-container-category-list">
+          <div
+            (click)="systemService.changeCurrentCategory(category.id)"
+            *ngFor="let category of categories"
+            class="system-menu-container-category-list-item"
+            [ngClass]="currentCategory === category.id ? 'selected' : ''"
+          >
+            {{ category.name }}
+          </div>
         </div>
       </div>
-    </div>
-    <div class="system-menu-container-product-list">
-      <div
-        *ngFor="let product of products"
-        class="system-menu-container-product-list-item"
-      >
+      <div class="system-menu-container-product-list">
         <div
-          class="system-menu-container-product-list-item-image"
+          *ngFor="let product of products"
+          class="system-menu-container-product-list-item"
           (click)="handleOrder(product)"
         >
-          <img [src]="product.image" alt="" width="100" />
-        </div>
-        <div class="system-menu-container-product-list-item-description">
-          <div
-            class="system-menu-container-product-list-item-description-title"
-          >
-            {{ product.name }}
+          <div class="system-menu-container-product-list-item-image">
+            <img [src]="product.image" alt="" width="100" />
           </div>
-          <div
-            class="system-menu-container-product-list-item-description-price"
-          >
-            R$ {{ product.price }}
-          </div>
-          <div
-            class="system-menu-container-product-list-item-description-igredients"
-          >
-            Pão com gergelim, 2 hambúrgueres, tomate, alface e fatias de
-            cheddar.
+          <div class="system-menu-container-product-list-item-description">
+            <div
+              class="system-menu-container-product-list-item-description-title"
+            >
+              {{ product.name }}
+            </div>
+            <div
+              class="system-menu-container-product-list-item-description-price"
+            >
+              R$ {{ product.price }}
+            </div>
+            <div
+              class="system-menu-container-product-list-item-description-igredients"
+            >
+              Pão com gergelim, 2 hambúrgueres, tomate, alface e fatias de
+              cheddar.
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</app-system-body>

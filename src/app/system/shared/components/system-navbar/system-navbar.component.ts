@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: "app-navbar",
-  templateUrl: "./navbar.component.html",
-  styleUrls: ["./navbar.component.scss"],
+  selector: "app-system-navbar",
+  templateUrl: "./system-navbar.component.html",
+  styleUrls: ["./system-navbar.component.scss"],
 })
-export class NavbarComponent {
+export class SystemNavbarComponent {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   public isSelected(route: string) {

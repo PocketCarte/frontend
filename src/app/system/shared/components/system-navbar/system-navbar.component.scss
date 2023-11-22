@@ -1,4 +1,4 @@
-.app-navbar {
+.app-system-navbar {
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -9,7 +9,7 @@
 
   .navbar-item {
     flex: 1;
-    color: #000;
+    color: #530f0f;
     background-color: rgb(251, 251, 251);
     font-size: 24px;
     display: flex;
@@ -18,8 +18,7 @@
     height: 42px;
 
     &.selected {
-      // background-color: #c92e2e;
-      background-color: #C70000;
+      background-color: #530f0f;
       color: #FFF;
     }
   }

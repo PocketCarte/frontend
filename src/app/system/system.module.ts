@@ -14,6 +14,8 @@ import { SystemModalComponent } from "./shared/components/system-modal/system-mo
 import { SystemInterceptorService } from "./shared/services/system-interceptor.service";
 import { SystemMenuOrderComponent } from "./system-menu-order/system-menu-order.component";
 import { SystemCallWaiterComponent } from "./system-call-waiter/system-call-waiter.component";
+import { SystemNavbarComponent } from "./shared/components/system-navbar/system-navbar.component";
+import { SystemBodyComponent } from './shared/components/system-body/system-body.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { SystemCallWaiterComponent } from "./system-call-waiter/system-call-wait
     SystemNotFoundComponent,
     SystemMenuOrderComponent,
     SystemCallWaiterComponent,
+    SystemNavbarComponent,
+    SystemBodyComponent,
   ],
   imports: [
     CommonModule,

@@ -1,10 +1,8 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-system-call-waiter',
-  templateUrl: './system-call-waiter.component.html',
-  styleUrls: ['./system-call-waiter.component.scss']
+  selector: "app-system-call-waiter",
+  templateUrl: "./system-call-waiter.component.html",
+  styleUrls: ["./system-call-waiter.component.scss"],
 })
-export class SystemCallWaiterComponent {
-
-}
+export class SystemCallWaiterComponent {}

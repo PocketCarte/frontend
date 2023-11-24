@@ -10,12 +10,14 @@ import { UploadImageComponent } from "./components/upload-image/upload-image.com
 import { OrderStatusPipe } from "./pipes/order-status.pipe";
 import { UserPermissionPipe } from "./pipes/user-permission.pipe";
 import { TableStatusPipe } from "./pipes/table-status.pipe";
+import { TextAreaComponent } from "./components/textarea/textarea.component";
 
 @NgModule({
   declarations: [
     FooterComponent,
     ButtonComponent,
     InputComponent,
+    TextAreaComponent,
     SelectComponent,
     UploadImageComponent,
     OrderStatusPipe,
@@ -27,6 +29,7 @@ import { TableStatusPipe } from "./pipes/table-status.pipe";
     FooterComponent,
     ButtonComponent,
     InputComponent,
+    TextAreaComponent,
     SelectComponent,
     UploadImageComponent,
     OrderStatusPipe,

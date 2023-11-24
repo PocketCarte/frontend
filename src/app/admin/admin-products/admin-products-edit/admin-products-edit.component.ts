@@ -20,6 +20,7 @@ export class AdminProductsEditComponent implements OnInit, OnDestroy {
   public categoriesOptions: SelectItem[] = [];
   public form: FormGroup = this.fb.group({
     name: new FormControl("", [Validators.required]),
+    description: new FormControl("", [Validators.required]),
     price: new FormControl("", [Validators.required]),
     category_id: new FormControl("", [Validators.required]),
     image: new FormControl(null),
@@ -48,6 +49,7 @@ export class AdminProductsEditComponent implements OnInit, OnDestroy {
         this.initialImage.next(result.image);
         this.form.patchValue({
           name: result.name,
+          description: result.description,
           price: result.price,
           category_id: result.category_id,
         });
@@ -78,6 +80,7 @@ export class AdminProductsEditComponent implements OnInit, OnDestroy {
         .updateProduct(
           this.adminModalService.data.productId,
           this.name.value,
+          this.description.value,
           this.price.value,
           this.category_id.value,
           this.image.value,
@@ -97,6 +100,10 @@ export class AdminProductsEditComponent implements OnInit, OnDestroy {
 
   public get name() {
     return this.form.get("name") as FormControl;
+  }
+
+  public get description() {
+    return this.form.get("description") as FormControl;
   }
 
   public get price() {

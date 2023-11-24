@@ -1,0 +1,8 @@
+<div class="app-textarea">
+  <label *ngIf="label">{{ label }}</label>
+  <textarea
+    [formControl]="control"
+    [placeholder]="placeholder"
+    (change)="onChange($event)"
+  ></textarea>
+</div>

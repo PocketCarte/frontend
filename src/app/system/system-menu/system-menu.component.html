@@ -32,7 +32,7 @@
         <div
           *ngFor="let product of products"
           class="system-menu-container-product-list-item"
-          (click)="handleOrder(product)"
+          (click)="handleMakeOrder(product)"
         >
           <div class="system-menu-container-product-list-item-image">
             <img [src]="product.image" alt="" width="100" />
@@ -50,9 +50,9 @@
             </div>
             <div
               class="system-menu-container-product-list-item-description-igredients"
+              *ngIf="product.description"
             >
-              Pão com gergelim, 2 hambúrgueres, tomate, alface e fatias de
-              cheddar.
+              {{ product.description }}
             </div>
           </div>
         </div>

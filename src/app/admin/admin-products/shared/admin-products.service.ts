@@ -51,12 +51,14 @@ export class AdminProductsService {
 
   public async addProduct(
     name: string,
+    description: string,
     price: number,
     category_id: string,
     file: any,
   ): Promise<void> {
     const formData = new FormData();
     formData.append("name", name);
+    formData.append("description", description);
     formData.append("price", String(price));
     formData.append("image", file);
 
@@ -70,12 +72,14 @@ export class AdminProductsService {
   public async updateProduct(
     id: string,
     name: string,
+    description: string,
     price: number,
     category_id: string,
     file: File,
   ): Promise<void> {
     const formData = new FormData();
     formData.append("name", name);
+    formData.append("description", description);
     formData.append("price", String(price));
     formData.append("image", file);
 

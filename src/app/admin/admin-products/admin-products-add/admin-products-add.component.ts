@@ -21,6 +21,7 @@ export class AdminProductsAddComponent implements OnInit, OnDestroy {
   public categoriesOptions: SelectItem[] = [];
   public form: FormGroup = this.fb.group({
     name: new FormControl("", [Validators.required]),
+    description: new FormControl("", [Validators.required]),
     price: new FormControl("", [Validators.required]),
     category_id: new FormControl("", [Validators.required]),
     image: new FormControl(null, [Validators.required]),
@@ -59,6 +60,7 @@ export class AdminProductsAddComponent implements OnInit, OnDestroy {
       this.adminProductsService
         .addProduct(
           this.name.value,
+          this.description.value,
           this.price.value,
           this.category_id.value,
           this.image.value,
@@ -78,6 +80,10 @@ export class AdminProductsAddComponent implements OnInit, OnDestroy {
 
   public get name() {
     return this.form.get("name") as FormControl;
+  }
+
+  public get description() {
+    return this.form.get("description") as FormControl;
   }
 
   public get price() {

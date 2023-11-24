@@ -1,79 +1,76 @@
-<div class="system-order-modal">
-  <div class="system-order-modal-image">
-    <img
-      src="../../../assets/images/menu/hamburger-destaque.jpg"
-      alt="Imagem de Produto"
-    />
+<div class="system-menu-order">
+  <div class="system-menu-order-image">
+    <img [src]="product.image" alt="Imagem de Produto" />
   </div>
-  <div class="system-order-modal-description">
+  <div class="system-menu-order-description" *ngIf="product.description">
     <p>
-      Pão com gergelim, 2 hambúrgueres, tomates, alface e fatias de cheddar.
+      {{ product.description }}
     </p>
   </div>
-  <div class="system-order-modal-optional-header">
+  <form class="system-menu-order-form" (ngSubmit)="handleMakeOrder()">
+    <div class="system-menu-order-form-body">
+      <app-input label="Quantidade:" [control]="quantity"></app-input>
+      <app-textarea
+        label="Observações:"
+        [control]="description"
+        placeholder="Caso deseje sem mostarda ou maionese, por exemplo..."
+      ></app-textarea>
+    </div>
+    <app-button type="submit" [disabled]="loading || !form.valid">
+      FAZER PEDIDO
+    </app-button>
+  </form>
+  <!-- <div class="system-menu-order-optional-header">
     <h2>Deseja algum adicional?</h2>
   </div>
-  <div class="system-order-modal-optional">
-    <div class="system-order-modal-optional-item">
-      <div class="system-order-modal-optional-item-image">
+  <div class="system-menu-order-optional">
+    <div class="system-menu-order-optional-item">
+      <div class="system-menu-order-optional-item-image">
         <img
           src="../../../assets/images/menu/bacon.jpg"
           alt="Fatias de Bacon"
         />
       </div>
-      <div class="system-order-modal-optional-item-name">
+      <div class="system-menu-order-optional-item-name">
         <p>Bacon</p>
       </div>
-      <div class="system-order-modal-optional-item-input">
-        <div class="system-order-modal-optional-item-input-minus">-</div>
-        <div class="system-order-modal-optional-item-input-quantity">0</div>
-        <div class="system-order-modal-optional-item-input-plus">+</div>
+      <div class="system-menu-order-optional-item-input">
+        <div class="system-menu-order-optional-item-input-minus">-</div>
+        <div class="system-menu-order-optional-item-input-quantity">0</div>
+        <div class="system-menu-order-optional-item-input-plus">+</div>
       </div>
     </div>
-    <div class="system-order-modal-optional-item">
-      <div class="system-order-modal-optional-item-image">
+    <div class="system-menu-order-optional-item">
+      <div class="system-menu-order-optional-item-image">
         <img
           src="../../../assets/images/menu/bacon.jpg"
           alt="Fatias de Bacon"
         />
       </div>
-      <div class="system-order-modal-optional-item-name">
+      <div class="system-menu-order-optional-item-name">
         <p>Bacon</p>
       </div>
-      <div class="system-order-modal-optional-item-input">
-        <div class="system-order-modal-optional-item-input-minus">-</div>
-        <div class="system-order-modal-optional-item-input-quantity">0</div>
-        <div class="system-order-modal-optional-item-input-plus">+</div>
+      <div class="system-menu-order-optional-item-input">
+        <div class="system-menu-order-optional-item-input-minus">-</div>
+        <div class="system-menu-order-optional-item-input-quantity">0</div>
+        <div class="system-menu-order-optional-item-input-plus">+</div>
       </div>
     </div>
-    <div class="system-order-modal-optional-item">
-      <div class="system-order-modal-optional-item-image">
+    <div class="system-menu-order-optional-item">
+      <div class="system-menu-order-optional-item-image">
         <img
           src="../../../assets/images/menu/bacon.jpg"
           alt="Fatias de Bacon"
         />
       </div>
-      <div class="system-order-modal-optional-item-name">
+      <div class="system-menu-order-optional-item-name">
         <p>Bacon</p>
       </div>
-      <div class="system-order-modal-optional-item-input">
-        <div class="system-order-modal-optional-item-input-minus">-</div>
-        <div class="system-order-modal-optional-item-input-quantity">0</div>
-        <div class="system-order-modal-optional-item-input-plus">+</div>
+      <div class="system-menu-order-optional-item-input">
+        <div class="system-menu-order-optional-item-input-minus">-</div>
+        <div class="system-menu-order-optional-item-input-quantity">0</div>
+        <div class="system-menu-order-optional-item-input-plus">+</div>
       </div>
     </div>
-  </div>
-  <div class="system-order-modal-obs">
-    <h3>Observações:</h3>
-    <textarea
-      name=""
-      id=""
-      cols="30"
-      rows="10"
-      placeholder="Caso deseje sem mostarda ou maionese, por exemplo..."
-    ></textarea>
-  </div>
-  <div class="system-order-modal-ordering">
-    <app-button size="normal" type="submit">FAZER PEDIDO</app-button>
-  </div>
+  </div> -->
 </div>

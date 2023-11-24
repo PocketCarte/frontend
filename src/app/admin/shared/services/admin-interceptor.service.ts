@@ -1,19 +1,18 @@
-import { HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpEvent, HttpHandler, HttpRequest } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class AdminInterceptorService {
   intercept(
     request: HttpRequest<any>,
-    next: HttpHandler
+    next: HttpHandler,
   ): Observable<HttpEvent<any>> {
-
     const adminToken = localStorage.getItem("adminToken");
 
-    if(adminToken){
+    if (adminToken) {
       request = request.clone({
         setHeaders: {
           Authorization: `Bearer ${adminToken}`,

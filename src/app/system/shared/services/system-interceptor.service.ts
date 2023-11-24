@@ -15,7 +15,7 @@ export class SystemInterceptorService {
     if (token) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`,
+          "PocketCarte-System-Token": `${token}`,
         },
       });
     }

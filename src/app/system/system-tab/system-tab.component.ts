@@ -1,14 +1,14 @@
 import { Component, OnInit } from "@angular/core";
-import { SystemWaiterService } from "../shared/services/system-waiter.service";
-import { SystemTabService } from "../system-tab/shared/system-tab.service";
+import { SystemTabService } from "./shared/system-tab.service";
 import { Router } from "@angular/router";
+import { SystemWaiterService } from "../shared/services/system-waiter.service";
 
 @Component({
-  selector: "app-system-call-waiter",
-  templateUrl: "./system-call-waiter.component.html",
-  styleUrls: ["./system-call-waiter.component.scss"],
+  selector: "app-system-tab",
+  templateUrl: "./system-tab.component.html",
+  styleUrls: ["./system-tab.component.scss"],
 })
-export class SystemCallWaiterComponent implements OnInit {
+export class SystemTabComponent implements OnInit {
   public table: any;
   public loading = true;
 
@@ -31,10 +31,10 @@ export class SystemCallWaiterComponent implements OnInit {
       });
   }
 
-  public handleCallWaiter(): void {
+  public handleFinishTab(): void {
     this.systemWaiterService.sendMessage(
-      "EI GARÇOM, TEM MESA TE CHAMANDO!",
-      `A mesa ${this.table.name} está chamando o garçom.`,
+      "EI GARÇOM, TEM MESA PEDINDO A CONTA",
+      `A mesa ${this.table.name} está pedindo a conta`,
     );
   }
 }

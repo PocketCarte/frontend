@@ -31,6 +31,7 @@ export class SystemAuthService {
         );
         const table_request = await this.generateToken(table_id);
         localStorage.setItem("token", table_request.token);
+        localStorage.setItem("table_id", table_id);
         return true;
       } catch (error) {
         this.router.navigate(["/not-found"]);
@@ -58,7 +59,17 @@ export class SystemAuthService {
 
     if (route.data["checkRoute"] !== "/not-found" && !check.logged) {
       localStorage.removeItem("token");
+      localStorage.removeItem("table_id");
       this.router.navigate(["/not-found"]);
+      return false;
+    }
+
+    if (
+      (route.data["checkRoute"] === "/tab" ||
+        route.data["checkRoute"] === "/request") &&
+      !check.valid
+    ) {
+      this.router.navigate(["/menu"]);
       return false;
     }
 

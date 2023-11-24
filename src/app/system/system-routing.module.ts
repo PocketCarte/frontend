@@ -3,11 +3,11 @@ import { RouterModule, Routes } from "@angular/router";
 import { SystemComponent } from "./system.component";
 import { SystemMenuComponent } from "./system-menu/system-menu.component";
 import { SystemTableRequestComponent } from "./system-table-request/system-table-request.component";
-import { SystemOrderComponent } from "./system-order/system-order.component";
 import { SystemAuthGuard } from "./shared/guards/system-auth.guard";
 import { SystemNotFoundComponent } from "./system-not-found/system-not-found.component";
 import { SystemCallWaiterComponent } from "./system-call-waiter/system-call-waiter.component";
-// this.route.snapshot.queryParamMap.get('filter')
+import { SystemTabComponent } from "./system-tab/system-tab.component";
+
 const routes: Routes = [
   {
     path: "",
@@ -26,10 +26,10 @@ const routes: Routes = [
         component: SystemMenuComponent,
       },
       {
-        path: "order",
-        data: { checkRoute: "/order" },
+        path: "tab",
+        data: { checkRoute: "/tab" },
         canActivate: [SystemAuthGuard],
-        component: SystemOrderComponent,
+        component: SystemTabComponent,
       },
       {
         path: "call_waiter",

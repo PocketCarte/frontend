@@ -1,5 +1,5 @@
 <app-system-body>
-  <div class="system-call_waiter">
+  <div class="system-call_waiter" *ngIf="!loading">
     <div class="system-call_waiter-container">
       <div class="system-call_waiter-container-title">
         <h1>Chamar um garçom</h1>
@@ -13,7 +13,9 @@
         />
       </div>
       <div class="system-call_waiter-container-confirm">
-        <app-button size="large" type="submit">CHAMAR GARÇOM</app-button>
+        <app-button size="large" (clicked)="handleCallWaiter()">
+          CHAMAR GARÇOM
+        </app-button>
       </div>
     </div>
   </div>

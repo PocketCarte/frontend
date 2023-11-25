@@ -9,7 +9,11 @@
   </div>
   <form class="system-menu-order-form" (ngSubmit)="handleMakeOrder()">
     <div class="system-menu-order-form-body">
-      <app-input label="Quantidade:" [control]="quantity"></app-input>
+      <app-input
+        type="number"
+        label="Quantidade:"
+        [control]="quantity"
+      ></app-input>
       <app-textarea
         label="Observações:"
         [control]="description"

@@ -22,7 +22,7 @@ export class SystemMenuComponent implements OnInit, OnDestroy {
 
   public handleMakeOrder(product: any) {
     this.systemModalService.open({
-      title: `Realizar pedido - ${product.name}`,
+      title: `${product.name}`,
       component: SystemMenuOrderComponent,
       data: { category: this.currentCategory, product },
     });

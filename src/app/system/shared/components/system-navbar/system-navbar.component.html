@@ -8,6 +8,7 @@
   </div>
   <div
     class="navbar-item"
+    *ngIf="systemAuthService.valid"
     [class.selected]="isSelected('/call_waiter')"
     routerLink="/call_waiter"
   >
@@ -15,6 +16,7 @@
   </div>
   <div
     class="navbar-item"
+    *ngIf="systemAuthService.valid"
     [class.selected]="isSelected('/tab')"
     routerLink="/tab"
   >

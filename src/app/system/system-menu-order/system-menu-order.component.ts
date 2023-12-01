@@ -7,6 +7,7 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { SystemAuthService } from "../shared/services/system-auth.service";
 
 @Component({
   selector: "app-system-menu-order",
@@ -24,6 +25,7 @@ export class SystemMenuOrderComponent {
   constructor(
     public systemModalService: SystemModalService,
     public systemMenuOrder: SystemMenuOrderService,
+    public systemAuthService: SystemAuthService,
     private fb: FormBuilder,
   ) {
     this.product = this.systemModalService.data.product;

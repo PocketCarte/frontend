@@ -7,7 +7,11 @@
       {{ product.description }}
     </p>
   </div>
-  <form class="system-menu-order-form" (ngSubmit)="handleMakeOrder()">
+  <form
+    class="system-menu-order-form"
+    (ngSubmit)="handleMakeOrder()"
+    *ngIf="systemAuthService.valid"
+  >
     <div class="system-menu-order-form-body">
       <app-input
         type="number"
@@ -24,57 +28,4 @@
       FAZER PEDIDO
     </app-button>
   </form>
-  <!-- <div class="system-menu-order-optional-header">
-    <h2>Deseja algum adicional?</h2>
-  </div>
-  <div class="system-menu-order-optional">
-    <div class="system-menu-order-optional-item">
-      <div class="system-menu-order-optional-item-image">
-        <img
-          src="../../../assets/images/menu/bacon.jpg"
-          alt="Fatias de Bacon"
-        />
-      </div>
-      <div class="system-menu-order-optional-item-name">
-        <p>Bacon</p>
-      </div>
-      <div class="system-menu-order-optional-item-input">
-        <div class="system-menu-order-optional-item-input-minus">-</div>
-        <div class="system-menu-order-optional-item-input-quantity">0</div>
-        <div class="system-menu-order-optional-item-input-plus">+</div>
-      </div>
-    </div>
-    <div class="system-menu-order-optional-item">
-      <div class="system-menu-order-optional-item-image">
-        <img
-          src="../../../assets/images/menu/bacon.jpg"
-          alt="Fatias de Bacon"
-        />
-      </div>
-      <div class="system-menu-order-optional-item-name">
-        <p>Bacon</p>
-      </div>
-      <div class="system-menu-order-optional-item-input">
-        <div class="system-menu-order-optional-item-input-minus">-</div>
-        <div class="system-menu-order-optional-item-input-quantity">0</div>
-        <div class="system-menu-order-optional-item-input-plus">+</div>
-      </div>
-    </div>
-    <div class="system-menu-order-optional-item">
-      <div class="system-menu-order-optional-item-image">
-        <img
-          src="../../../assets/images/menu/bacon.jpg"
-          alt="Fatias de Bacon"
-        />
-      </div>
-      <div class="system-menu-order-optional-item-name">
-        <p>Bacon</p>
-      </div>
-      <div class="system-menu-order-optional-item-input">
-        <div class="system-menu-order-optional-item-input-minus">-</div>
-        <div class="system-menu-order-optional-item-input-quantity">0</div>
-        <div class="system-menu-order-optional-item-input-plus">+</div>
-      </div>
-    </div>
-  </div> -->
 </div>

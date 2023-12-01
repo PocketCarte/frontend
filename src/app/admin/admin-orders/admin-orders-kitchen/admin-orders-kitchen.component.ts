@@ -28,7 +28,6 @@ export class AdminOrdersKitchenComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.adminOrdersService.orders$.subscribe((result: any) => {
         this.data = groupBy(result, "status");
-        console.log(groupBy(result, "status"));
       }),
     );
   }
@@ -38,7 +37,6 @@ export class AdminOrdersKitchenComponent implements OnInit, OnDestroy {
   }
 
   public handleEditOrder(event: any): void {
-    console.log(event);
     this.adminModalService.open({
       title: "Editar pedido",
       component: AdminOrdersEditComponent,

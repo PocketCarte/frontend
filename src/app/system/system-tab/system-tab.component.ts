@@ -27,7 +27,6 @@ export class SystemTabComponent implements OnInit {
         result.orders.list.forEach((order: any) => {
           this.totalItems += Number(order.product_quantity);
         });
-        console.log(result);
         this.loading = false;
       })
       .catch(() => {

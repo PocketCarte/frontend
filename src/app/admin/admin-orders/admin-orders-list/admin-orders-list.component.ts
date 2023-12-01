@@ -55,11 +55,6 @@ export class AdminOrdersListComponent implements OnInit, OnDestroy {
     this.adminSpinnerService.showing = true;
     await this.adminOrdersService.getOrders();
     this.adminSpinnerService.showing = false;
-    this.subscriptions.add(
-      this.adminOrdersService.orders$.subscribe((result) => {
-        console.log(result);
-      }),
-    );
   }
 
   public ngOnDestroy(): void {

@@ -23,7 +23,6 @@ export class SystemCallWaiterComponent implements OnInit {
       .getTab()
       .then((result) => {
         this.table = result;
-        console.log(result);
         this.loading = false;
       })
       .catch(() => {

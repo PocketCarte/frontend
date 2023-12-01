@@ -8,6 +8,7 @@ import { Subscription } from "rxjs";
 import { AdminTablesEditComponent } from "../admin-tables-edit/admin-tables-edit.component";
 import { AdminUserService } from "../../shared/services/admin-user.service";
 import { AdminPermissions } from "../../shared/types/admin-permissions";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-admin-tables-list",
@@ -35,6 +36,7 @@ export class AdminTablesListComponent implements OnInit, OnDestroy {
     public adminSpinnerService: AdminSpinnerService,
     public adminUserService: AdminUserService,
     private adminModalService: AdminModalService,
+    private router: Router,
   ) {}
 
   public async ngOnInit(): Promise<void> {
@@ -57,6 +59,14 @@ export class AdminTablesListComponent implements OnInit, OnDestroy {
       title: "Adicionar mesa",
       component: AdminTablesAddComponent,
     });
+  }
+
+  public handleOpenTableRequestsMenu(): void {
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(["/admin/table_requests"]),
+    );
+
+    window.open(url, "_blank");
   }
 
   public handleDeleteTable(event: any): void {

@@ -11,6 +11,7 @@ import { SystemWaiterService } from "../shared/services/system-waiter.service";
 export class SystemTabComponent implements OnInit {
   public table: any;
   public loading = true;
+  public totalItems = 0;
 
   constructor(
     private systemTabService: SystemTabService,
@@ -23,6 +24,9 @@ export class SystemTabComponent implements OnInit {
       .getTab()
       .then((result) => {
         this.table = result;
+        result.orders.list.forEach((order: any) => {
+          this.totalItems += Number(order.product_quantity);
+        });
         console.log(result);
         this.loading = false;
       })

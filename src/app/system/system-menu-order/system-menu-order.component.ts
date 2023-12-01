@@ -30,6 +30,7 @@ export class SystemMenuOrderComponent {
   }
 
   public handleMakeOrder(): void {
+    this.loading = true;
     this.systemMenuOrder
       .addOrder(
         localStorage.getItem("table_id") ?? "",

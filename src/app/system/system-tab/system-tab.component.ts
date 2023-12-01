@@ -39,5 +39,6 @@ export class SystemTabComponent implements OnInit {
       "EI GARÇOM, TEM MESA PEDINDO A CONTA",
       `A mesa ${this.table.name} está pedindo a conta`,
     );
+    alert("Um garçom foi chamado para a sua mesa.");
   }
 }

@@ -35,5 +35,6 @@ export class SystemCallWaiterComponent implements OnInit {
       "EI GARÇOM, TEM MESA TE CHAMANDO!",
       `A mesa ${this.table.name} está chamando o garçom.`,
     );
+    alert("Um garçom foi chamado para a sua mesa.");
   }
 }

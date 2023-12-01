@@ -12,7 +12,7 @@
         >
           <div>{{ order.product_quantity + "x" }}</div>
           <div>{{ order.product_name }}</div>
-          <div>{{ order.price_total }}</div>
+          <div>{{ order.price_total | currency }}</div>
           <div>{{ order.status | orderStatus }}</div>
         </div>
       </div>

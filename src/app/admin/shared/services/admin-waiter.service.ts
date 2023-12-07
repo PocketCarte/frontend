@@ -10,13 +10,7 @@ export class AdminWaiterService {
     const socket = io(environment.apiUrl);
 
     socket.on("waiter_message", (message) => {
-      Notification.requestPermission().then((perm) => {
-        if (perm === "granted") {
-          const notify = new Notification(message.title, {
-            body: message.subtitle,
-          });
-        }
-      });
+      alert(`${message.title}\n\n${message.subtitle}`);
     });
   }
 }
